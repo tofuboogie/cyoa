@@ -99,27 +99,47 @@ public class TawniRooms extends Rooms implements Serializable {
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
-			String a,b,c,d;
+			String a,b,c,d,e;
 		
-			// if (You.areWith(PERSON)) { ACTION } else { ACTION }
-			// if (You.have(ITEM)) { ACTION } else { ACTION }
-			// if (ROOM.hasItem(ITEM) { ACTION } else { ACTION }
-			// if (ROOM.hasPerson(PERSON) { ACTION } else { ACTION }
+			if (You.areWith(pMelissa)) { 
+				a="Melissa walks out onto the train tracks"; 
+				b="Mel busts a cap in your ass";
+				c="Mel picks her nose and flicks a bogie at you";
+			} 
+			else { 
+				a=""; 
+				b=""; 
+				c="You pick your nose";
+			}
+				
+			if (You.have(iFlashlight) && iFlashlight.isOn()) {
+				d="You narrowly avoid jabbing yourself in the eye with your fingernail"; 
+				e="You see the banshee that will later eat you.";
+			} 
+			else { 
+				d="You smack yourself in the forehead with your fingernail"; 
+				e="You cannot sense your impending death.";
+			}
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
 		
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"The sign above the admission booth reads 'RAIN IDES $2.' Only the first few feet of train tracks are visible before they are covered with overgrown grass. Train cars sit in the grass about 50 yards ahead."
+						"The sign above the admission booth reads 'RAIN IDES $2.' Only the first few feet of train tracks are visible before they are covered with overgrown grass. Train cars sit in the grass about 50 yards ahead." + a + b
 					};
 				break;
 				case 2:
 					strTemp = new String[] {
-						"Popcorn litters the floor. You can feel it getting stuck in your shoe soles the same way it gets stuck in your teeth." 
+						"Popcorn litters the floor." + c + "You can feel it getting stuck in your shoe soles the same way it gets stuck in your teeth." 
 					};
 				break;
 				case 3:
 					strTemp = new String[] {
-						"There is a large bumblebee spray painted on the back side of the sign."
+						"There is a large bumblebee spray painted on the back side of the sign." + b
 					};
 				break;
 				default:
