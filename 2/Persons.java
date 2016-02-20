@@ -1,6 +1,7 @@
 package dtz.cyoa;
+import java.io.*;
 
-public class Persons extends Rooms{
+public class Persons extends Rooms implements Serializable {
 
 	public Persons() {
 	}

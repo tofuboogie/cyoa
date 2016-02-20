@@ -1,8 +1,9 @@
 package dtz.cyoa;
+import java.io.*;
 
 import java.util.ArrayList;
 
-public class DaveRooms extends Rooms {
+public class DaveRooms extends Rooms implements Serializable {
 
 	public DaveRooms() {
 	}

@@ -1,8 +1,9 @@
 package dtz.cyoa;
 
 import java.util.ArrayList;
+import java.io.*;
 
-public final class Globals {
+public final class Globals implements Serializable{
 
 	interface Callback {
 		public String updateState();	 		// String returned must describe any changes made

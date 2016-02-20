@@ -1,8 +1,9 @@
 package dtz.cyoa;
 
 import java.util.ArrayList;
+import java.io.*;
 
-public class Room {
+public class Room implements Serializable{
 	
 	interface Callback {
 		public void update(int numberOfVisits);

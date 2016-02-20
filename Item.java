@@ -1,7 +1,8 @@
 package dtz.cyoa;
 import java.util.ArrayList;
+import java.io.*;
 
-public class Item {
+public class Item implements Serializable {
 
 	public String _name;					// eg, lock
 	public String _description;

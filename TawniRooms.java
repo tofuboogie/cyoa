@@ -1,8 +1,9 @@
 package dtz.cyoa;
+import java.io.*;
 
 import java.util.ArrayList;
 
-public class TawniRooms extends Rooms{
+public class TawniRooms extends Rooms implements Serializable {
 
 	/*
 	1 Cotton Candy Stand

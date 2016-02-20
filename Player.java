@@ -1,8 +1,9 @@
 package dtz.cyoa;
 
 import java.util.ArrayList;
+import java.io.*;
 
-public class Player {
+public class Player implements Serializable {
 
 	public String _name;
 	public ArrayList<Person> _companions;

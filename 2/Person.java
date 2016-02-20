@@ -1,6 +1,7 @@
 package dtz.cyoa;
+import java.io.*;
 
-public class Person {
+public class Person implements Serializable {
 	
 	public String _name;
 	public String _description;	

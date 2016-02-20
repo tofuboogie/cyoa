@@ -2,8 +2,9 @@ package dtz.cyoa;
 
 import java.util.ArrayList;
 import java.util.Stack;
+import java.io.*;
 
-public class Rooms {
+public class Rooms implements Serializable {
 
 	public static Stack<Room> _stkPrevious = new Stack<Room>();		// previous rooms chain
 	public static Room currentRoom; // keep track of current room in Main
@@ -71,6 +72,50 @@ public class Rooms {
 		You.setDescription("",true,true);
 	}
 	
+	public void save(String filename){
+		
+		try {
+			File file = new File("savedGames/" + filename);
+			boolean fileCreated = file.createNewFile();
+			FileOutputStream fs = new FileOutputStream(file);
+			ObjectOutputStream os = new ObjectOutputStream(fs);
+
+			os.writeObject(Begin);
+			os.writeObject(Home);
+			os.writeObject(Work);
+			os.writeObject(Tracks);
+			
+			System.out.println("saved successfully.");
+			
+			os.close();
+			fs.close();
+		}
+		catch(Exception e){
+			System.out.println(e.toString() + " : save failed.");
+		}
+	}
+	
+	public void restore(String filename){
+		
+		try {
+			File file = new File("savedGames/" + filename);
+			FileInputStream fs = new FileInputStream(file);
+			ObjectInputStream os = new ObjectInputStream(fs);
+		
+			Begin = (Room) os.readObject();
+			Home = (Room) os.readObject();
+			Work = (Room) os.readObject();
+			Tracks = (Room) os.readObject();
+			
+			System.out.println("restored successfully.");
+			
+			os.close();
+			fs.close();
+		}	
+		catch (Exception e){
+			System.out.println(e.toString() + " : restore failed.");	
+		}
+	}
 	
 	public void removePreviousRooms(int howMany){
 		if (_stkPrevious.size() >= howMany){

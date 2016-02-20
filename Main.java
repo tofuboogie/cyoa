@@ -137,6 +137,14 @@ public class Main {
 				int look = look();
 				//dir = 0;
 			break;
+			
+			case 11:
+				allRooms.save("savedCyoa");
+			break;
+			
+			case 12:
+				allRooms.restore("savedCyoa");
+			break;
 				
 			default: 
 				System.out.println("\tWhoops. Try something else.");
@@ -457,9 +465,17 @@ public class Main {
 				int look = look();
 				if (look > 0) return 2;
 			return 0;
+			
+			case 11:
+				allRooms.save("savedCyoa");
+			return 2;
+			
+			case 12:
+				allRooms.restore("savedCyoa");
+			return 2;
 				
 			default:
-				System.out.println("\tWhoops. Try something else.");
+				System.out.println("\tWhoopsie. Try something else.");
 			return 2;
         }
 	}
