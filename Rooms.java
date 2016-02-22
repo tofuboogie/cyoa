@@ -72,50 +72,17 @@ public class Rooms implements Serializable {
 		You.setDescription("",true,true);
 	}
 	
-	public void save(String filename){
+	public void initAfterRestore(){	//this re-inits the callbacks/interfaces that can't be serialized
+		Items i = new Items();
+		TawniRooms t = new TawniRooms();
+		DaveRooms d = new DaveRooms();
 		
-		try {
-			File file = new File("savedGames/" + filename);
-			boolean fileCreated = file.createNewFile();
-			FileOutputStream fs = new FileOutputStream(file);
-			ObjectOutputStream os = new ObjectOutputStream(fs);
-
-			os.writeObject(Begin);
-			os.writeObject(Home);
-			os.writeObject(Work);
-			os.writeObject(Tracks);
-			
-			System.out.println("saved successfully.");
-			
-			os.close();
-			fs.close();
-		}
-		catch(Exception e){
-			System.out.println(e.toString() + " : save failed.");
-		}
+		t.initializeRooms();
+		d.initializeRooms();
+		i.initializeItems();
 	}
 	
-	public void restore(String filename){
-		
-		try {
-			File file = new File("savedGames/" + filename);
-			FileInputStream fs = new FileInputStream(file);
-			ObjectInputStream os = new ObjectInputStream(fs);
-		
-			Begin = (Room) os.readObject();
-			Home = (Room) os.readObject();
-			Work = (Room) os.readObject();
-			Tracks = (Room) os.readObject();
-			
-			System.out.println("restored successfully.");
-			
-			os.close();
-			fs.close();
-		}	
-		catch (Exception e){
-			System.out.println(e.toString() + " : restore failed.");	
-		}
-	}
+
 	
 	public void removePreviousRooms(int howMany){
 		if (_stkPrevious.size() >= howMany){
@@ -262,7 +229,6 @@ public class Rooms implements Serializable {
 			//OTHER CODE
 		}  
 	});
-
 	*/
 	
 }

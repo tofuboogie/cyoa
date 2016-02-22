@@ -26,7 +26,7 @@ public class DaveRooms extends Rooms implements Serializable {
 	public void initializeRooms() {
 	
 // Room: Begin ----------------------------------------------------------------------------------------
-Begin.set(
+Begin.setDescription(
 "Begin",
 
 new Room.Description() {
@@ -72,37 +72,34 @@ new Room.Description() {
 		}
 	return strTemp;	
 	}
-},
-		
-null,
-Home, Work, Tracks,
+});
+	
+Begin.setOtherRooms(
+	Home, Work, Tracks,
 
-"Home",
-"Go home and forget about the park. There\'s a new episode of \"The World\'s Next Very Best Person Alive\" on tonight.",
+	"Home",
+	"Go home and forget about the park. There\'s a new episode of \"The World\'s Next Very Best Person Alive\" on tonight.",
 
-"Work",
-"Stay late to work on a project. There\'s no way you\'ll get a quarterly bonus if you don\'t get it done.",
+	"Work",
+	"Stay late to work on a project. There\'s no way you\'ll get a quarterly bonus if you don\'t get it done.",
 
-"Antique Store",
-"Go to the antique store, ostensibly looking for treasures, then sneak out the back door and head down the tracks.",
-
-null,
-null,
-
-new Room.Callback() {  
-	public void update(int numberOfVisits) { 
-		if (numberOfVisits > 3){
-			You._dead = true;
-		}
-	}  
-},
-
-false
-
+	"Antique Store",
+	"Go to the antique store, ostensibly looking for treasures, then sneak out the back door and head down the tracks."
 );
 
+Begin.setAction(
+	new Room.Callback() {  
+		public void update(int numberOfVisits) { 
+			You.setDescription("",true,true);	// include with all rooms, to update player description
+			if (numberOfVisits > 10){
+				You._dead = true;
+			}
+		}  
+});
+
+
 // Room: Home ----------------------------------------------------------------------------------------
-Home.set(
+Home.setDescription(
 "Home",
 new Room.Description() {
 	public String[] make(int numberOfVisits) {
@@ -147,26 +144,16 @@ new Room.Description() {
 		
 		return strTemp;
 	}
-},
+});
 
-Begin,
-null, null, null,
-"",
-"",
-"",
-"",
-"",
-"",
-
-new ArrayList<Item>() {
-	{ add(iThingamabob);
-	}
-},
-null,
-
-null,
-false
+Home.setStuff(
+	new ArrayList<Item>() {
+		{ add(iThingamabob);
+		}
+	},
+	null
 );
+
 
 // Room: Work ----------------------------------------------------------------------------------------
 Work.setDescription(

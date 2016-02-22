@@ -13,7 +13,7 @@ public class Item implements Serializable {
 	public boolean _quiet;					// keep scenery, like doors, from announcing themselves
 	public boolean _open;
 	public boolean _isDoor;					// is the item a door?
-	public ArrayList<Action> _actions;		// array of possible targets and actions on targets
+	public transient ArrayList<Action> _actions;		// array of possible targets and actions on targets
 	public int _switchedOnStartTime;		// mark time item is turned on
 	public int _switchedOnTotalTime;	
 	public int _takenStartTime;				// mark time the item is taken
@@ -106,14 +106,16 @@ public class Item implements Serializable {
 	
 	public void set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor) {
-		this._name = name;
-		this._description = description;
-		this._is_are = is_are;
-		this._requires = requires;
-		this._requirementMetText = requirementMetText;
-		this._quiet = quiet;
-		this._open = open;
-		this._isDoor = isDoor;
+		if (!Globals.restoredFromSavedState){
+			this._name = name;
+			this._description = description;
+			this._is_are = is_are;
+			this._requires = requires;
+			this._requirementMetText = requirementMetText;
+			this._quiet = quiet;
+			this._open = open;
+			this._isDoor = isDoor;
+		}
 	}
 	
 	public void set(String name, String description){

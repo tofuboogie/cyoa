@@ -11,6 +11,7 @@ public final class Globals implements Serializable{
 
 	private static int clock;  			 		// increments after every action
 	public static ArrayList<Callback> listener; // array of functions to check game state after every action
+	public static boolean restoredFromSavedState; // if true, don't run state inits
 
 	public static void updateTime(){
 		clock++;
@@ -32,6 +33,46 @@ public final class Globals implements Serializable{
 	
 	public static void addListener(Callback callback){
 		listener.add(callback);
+	}
+	
+	public static void save(String filename, Rooms rooms){
+		try {
+			File file = new File("savedGames/" + filename);
+			boolean fileCreated = file.createNewFile();
+			FileOutputStream fs = new FileOutputStream(file);
+			ObjectOutputStream os = new ObjectOutputStream(fs);
+					
+			os.writeObject(rooms);
+		
+			os.close();
+			fs.close();
+			System.out.println("saved successfully.");
+		}
+		catch(Exception e){
+			System.out.println(e.toString() + " : save failed.");
+		}
+	}
+	
+	public static Rooms restore(String filename){
+		try {
+			File file = new File("savedGames/" + filename);
+			FileInputStream fs = new FileInputStream(file);
+			ObjectInputStream os = new ObjectInputStream(fs);
+		
+			Rooms rooms = (Rooms) os.readObject();
+
+			restoredFromSavedState = true;
+			rooms.initAfterRestore();
+
+			os.close();
+			fs.close();
+			System.out.println("restored successfully.");
+			return rooms;
+		}	
+		catch (Exception e){
+			System.out.println(e.toString() + " : restore failed.");	
+		}
+		return null;
 	}	
 
 }

@@ -15,7 +15,7 @@ public class Room implements Serializable{
 
 	// fields
 	public String _name;
-	public Description _description;			
+	public transient Description _description;			
 	public Room _previous;			
 	public Room _next1;				
 	public Room _next2;				
@@ -25,7 +25,7 @@ public class Room implements Serializable{
 	public ArrayList<Item> _items; 
 	public ArrayList<Person> _persons;
 	private int _numberOfVisits;
-	public Callback _callback;
+	public transient Callback _callback;
 	private boolean _isDoor;
 	
 	public String getItems(int withNums, boolean includeDoors) {					
@@ -173,34 +173,42 @@ public class Room implements Serializable{
 	
 	// deprecated
 	public void setOtherRooms(Room previous, Room next1, Room next2, Room next3, String btn1Label, String btn1Txt, String btn2Label, String btn2Txt, String btn3Label, String btn3Txt){
-		this._previous = previous;
-		this._next1 = next1;
-		this._next2 = next2;
-		this._next3 = next3;
-		this._btn1Label = btn1Label;
-		this._btn2Label = btn2Label;
-		this._btn3Label = btn3Label;
-		this._btn1Txt = btn1Txt;
-		this._btn2Txt = btn2Txt;
-		this._btn3Txt = btn3Txt;
+		if (!Globals.restoredFromSavedState){
+			this._previous = previous;
+			this._next1 = next1;
+			this._next2 = next2;
+			this._next3 = next3;
+			this._btn1Label = btn1Label;
+			this._btn2Label = btn2Label;
+			this._btn3Label = btn3Label;
+			this._btn1Txt = btn1Txt;
+			this._btn2Txt = btn2Txt;
+			this._btn3Txt = btn3Txt;
+		}
 	}
+	
 	
 	// setOtherRooms overload (no previous)
 	public void setOtherRooms(Room next1, Room next2, Room next3, String btn1Label, String btn1Txt, String btn2Label, String btn2Txt, String btn3Label, String btn3Txt){
-		this._next1 = next1;
-		this._next2 = next2;
-		this._next3 = next3;
-		this._btn1Label = btn1Label;
-		this._btn2Label = btn2Label;
-		this._btn3Label = btn3Label;
-		this._btn1Txt = btn1Txt;
-		this._btn2Txt = btn2Txt;
-		this._btn3Txt = btn3Txt;
+	
+		if (!Globals.restoredFromSavedState){
+			this._next1 = next1;
+			this._next2 = next2;
+			this._next3 = next3;
+			this._btn1Label = btn1Label;
+			this._btn2Label = btn2Label;
+			this._btn3Label = btn3Label;
+			this._btn1Txt = btn1Txt;
+			this._btn2Txt = btn2Txt;
+			this._btn3Txt = btn3Txt;
+		}
 	}	
 	
 	public void setStuff(ArrayList<Item> items, ArrayList<Person> persons) {
-		this._items = items;
-		this._persons = persons;
+		if (!Globals.restoredFromSavedState){
+			this._items = items;
+			this._persons = persons;
+		}
 	}
 	
 	public void setAction(Callback callback){

@@ -34,7 +34,7 @@ public class Main {
 	}
 	
 	private static String cmdText(){
-		String str = "Next(1) - Next(2) - Next(3) - Prev(4) - More(5) - Inventory(6) - Use(7) - Take(8) - Exit(9) - Look(10)\n";
+		String str = "Next(1) - Next(2) - Next(3) - Prev(4) - More(5) - Inventory(6) - Use(7) - Take(8) - Exit(9)\nLook(10) - Save(11) - Restore(12)\n";
 		return str;
 	}
 	
@@ -139,11 +139,11 @@ public class Main {
 			break;
 			
 			case 11:
-				allRooms.save("savedCyoa");
+				Globals.save("savedCyoa",allRooms);
 			break;
 			
 			case 12:
-				allRooms.restore("savedCyoa");
+				allRooms = Globals.restore("savedCyoa");
 			break;
 				
 			default: 
@@ -467,13 +467,13 @@ public class Main {
 			return 0;
 			
 			case 11:
-				allRooms.save("savedCyoa");
+				Globals.save("savedCyoa",allRooms);
 			return 2;
 			
 			case 12:
-				allRooms.restore("savedCyoa");
+				allRooms = Globals.restore("savedCyoa");
 			return 2;
-				
+			
 			default:
 				System.out.println("\tWhoopsie. Try something else.");
 			return 2;
