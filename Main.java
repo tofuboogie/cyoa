@@ -518,6 +518,7 @@ public class Main {
 	    for (int i=0;i<strLen;i++) { 
 			clearScreen();
 			System.out.println(boldBlue+ "\"" +room._name + "\"" + normal);
+			System.out.println("room._numberOfVisits= " + room._numberOfVisits);
 			System.out.println();
 			printWraps(str[i]);
 

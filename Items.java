@@ -17,7 +17,6 @@ public class Items extends Rooms implements Serializable {
 	
 	}	
 
-		
 	public void initializeItems() {
 		
 		/*
@@ -67,7 +66,7 @@ public class Items extends Rooms implements Serializable {
 		iChairSwingGrating.set("grating","A heavy stainless steel grating, whose cross-supports make a grid of a few hundred rectangles, each about two finger-widths wide.",
 					"is",null,"",false,false,true);	
 		iChairSwingTowerNearTopDoor.set("roof hatch","A thin square metal door on the ceiling. It has a lever on the right side, which rattles when the wind blows outside."); 
-		iChairSwingTowerNearTopDoor.makeIntoAdoor(iYourself,ChairSwingTowerNearTop, 		ChairSwingTowerOnTop, "Up","Go to the roof");
+		iChairSwingTowerNearTopDoor.makeIntoAdoor(iYourself,ChairSwingTowerNearTop, 		ChairSwingTowerOnTop, "Up","Go to the roof"); 
 		
 		
 		iFlashlight.set("flashlight",

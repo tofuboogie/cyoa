@@ -82,7 +82,174 @@ public class Rooms implements Serializable {
 		i.initializeItems();
 	}
 	
-
+	private void writeObject(ObjectOutputStream out) throws IOException{
+		//write non-static fields
+		out.defaultWriteObject();
+		
+		out.writeObject(You);
+		out.writeObject(_stkPrevious);
+		out.writeObject(currentRoom);
+		out.writeObject(priorRoom);
+		//write Rooms
+		/*
+		out.writeObject(CottonCandyStand);
+		out.writeObject(MiniatureTrainStation);
+		out.writeObject(MiniatureTrainCars);
+		out.writeObject(ChairSwing);
+		out.writeObject(ChairSwingTower);
+		out.writeObject(ChairSwingSeat);
+		out.writeObject(ChairSwingUnderGrating);
+		out.writeObject(ChairSwingTowerMid);
+		out.writeObject(ChairSwingTowerNearTop);
+		out.writeObject(ChairSwingTowerOnTop);
+		out.writeObject(HiStriker);
+		out.writeObject(AirRifleSidestall);
+		out.writeObject(Bathroom);
+		out.writeObject(DeepFriedTwinkie);
+		out.writeObject(Outbuilding);
+		*/
+		out.writeObject(Begin);
+		out.writeObject(FenceHole);
+		out.writeObject(Home);
+		out.writeObject(Work);
+		out.writeObject(Tracks);
+		/*
+		out.writeObject(Fence);
+		out.writeObject(TieShoes);
+		out.writeObject(FenceLock);
+		out.writeObject(Tracks2);
+		out.writeObject(ShoesNoise);
+		out.writeObject(FreakOut);
+		out.writeObject(Melissa);
+		out.writeObject(TakeLoveLock);
+		out.writeObject(AskMelissa);
+		out.writeObject(MaintenanceShed);
+		out.writeObject(MaintenanceRearDoor);
+		out.writeObject(MaintenanceRearWindow);
+		out.writeObject(MaintenanceShedFront);
+		out.writeObject(MaintShedFrontDoor);
+		out.writeObject(MaintShedInside);
+		out.writeObject(TakeCrowbar);
+		out.writeObject(Gazebo);
+		out.writeObject(BurlesqueParlor);
+		out.writeObject(FerrisWheel);
+		out.writeObject(FunnelcakeStand);
+		out.writeObject(PublicSquare);
+		out.writeObject(ArcherySidestall);
+		out.writeObject(BasketballSidestall);
+		out.writeObject(HotDogCart);
+		out.writeObject(MerryGoRound);
+		out.writeObject(PortaJon);
+		out.writeObject(BumperCars);
+		out.writeObject(TicketBooth);
+		*/
+		//write Items
+		out.writeObject(iYourself);
+		out.writeObject(iTshirt);
+		out.writeObject(iLoveLocks);
+		out.writeObject(iLoveLockKey);
+		out.writeObject(iThingamabob);
+		out.writeObject(iCrowbar);
+		out.writeObject(iMaintShedFD);
+		out.writeObject(iTissue);
+		out.writeObject(iChairSwingGrating);
+		out.writeObject(iChairSwingDoor);
+		out.writeObject(iChairSwingDoorHandle);
+		out.writeObject(iChairSwingLever);
+		out.writeObject(iChairSwingTowerNearTopDoor); //unhide
+		out.writeObject(iFlashlight);
+		//write Persons
+		out.writeObject(pMelissa);
+	}
+	
+	@SuppressWarnings("unchecked") //otherwise, compiler complains about (Stack<Room>)in.readObject()
+	private void readObject(ObjectInputStream in) throws IOException,ClassNotFoundException{
+	//NOTE: This must read objects back in in _exactly_ the same order as they were writ out
+		//read non-static fields
+		in.defaultReadObject();
+		
+		You = (Player)in.readObject();
+		_stkPrevious = (Stack<Room>)in.readObject();
+		currentRoom = (Room)in.readObject();
+		priorRoom = (Room)in.readObject();
+		//read Rooms
+		/*
+		CottonCandyStand = (Room)in.readObject();
+		MiniatureTrainStation = (Room)in.readObject();
+		MiniatureTrainCars = (Room)in.readObject();
+		ChairSwing = (Room)in.readObject();
+		ChairSwingTower = (Room)in.readObject();
+		ChairSwingSeat = (Room)in.readObject();
+		ChairSwingUnderGrating = (Room)in.readObject();
+		ChairSwingTowerMid = (Room)in.readObject();
+		ChairSwingTowerNearTop = (Room)in.readObject();
+		ChairSwingTowerOnTop = (Room)in.readObject();
+		HiStriker = (Room)in.readObject();
+		AirRifleSidestall = (Room)in.readObject();
+		Bathroom = (Room)in.readObject();
+		DeepFriedTwinkie = (Room)in.readObject();
+		Outbuilding = (Room)in.readObject();
+		*/
+		Begin = (Room)in.readObject();
+		System.out.println("Begin._numberOfVisits= " + Begin._numberOfVisits);
+		FenceHole = (Room)in.readObject();
+		Home = (Room)in.readObject();
+		Work = (Room)in.readObject();
+		Tracks = (Room)in.readObject();
+		/*
+		Fence = (Room)in.readObject();
+		TieShoes = (Room)in.readObject();
+		FenceLock = (Room)in.readObject();
+		Tracks2 = (Room)in.readObject();
+		ShoesNoise = (Room)in.readObject();
+		FreakOut = (Room)in.readObject();
+		Melissa = (Room)in.readObject();
+		TakeLoveLock = (Room)in.readObject();
+		AskMelissa = (Room)in.readObject();
+		MaintenanceShed = (Room)in.readObject();
+		MaintenanceRearDoor = (Room)in.readObject();
+		MaintenanceRearWindow = (Room)in.readObject();
+		MaintenanceShedFront = (Room)in.readObject();
+		MaintShedFrontDoor = (Room)in.readObject();
+		MaintShedInside = (Room)in.readObject();
+		TakeCrowbar = (Room)in.readObject();
+		Gazebo = (Room)in.readObject();
+		BurlesqueParlor = (Room)in.readObject();
+		FerrisWheel = (Room)in.readObject();
+		FunnelcakeStand = (Room)in.readObject();
+		PublicSquare = (Room)in.readObject();
+		ArcherySidestall = (Room)in.readObject();
+		BasketballSidestall = (Room)in.readObject();
+		HotDogCart = (Room)in.readObject();
+		MerryGoRound = (Room)in.readObject();
+		PortaJon = (Room)in.readObject();
+		BumperCars = (Room)in.readObject();
+		TicketBooth = (Room)in.readObject();
+		*/
+		//read Items
+		Item[] items = {
+			iYourself,
+			iTshirt,
+			iLoveLocks,
+			iLoveLockKey,
+			iThingamabob,
+			iCrowbar,
+			iMaintShedFD,
+			iTissue,
+			iChairSwingGrating,
+			iChairSwingDoor,
+			iChairSwingDoorHandle,
+			iChairSwingLever,
+			iChairSwingTowerNearTopDoor,
+			iFlashlight
+		};
+		for (int i = 0;i<items.length;i++){
+			items[i] = (Item)in.readObject();
+			items[i].initTransients(); // you get NullPointerExceptions wo this	
+		}
+		//read Persons
+		pMelissa = (Person)in.readObject();
+	}
 	
 	public void removePreviousRooms(int howMany){
 		if (_stkPrevious.size() >= howMany){

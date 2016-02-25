@@ -104,6 +104,10 @@ public class Item implements Serializable {
 		_takenStartTime = 0;	
 	}
 	
+	public void initTransients(){
+		_actions = new ArrayList<Action>();
+	}
+	
 	public void set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor) {
 		if (!Globals.restoredFromSavedState){
