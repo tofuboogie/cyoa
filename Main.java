@@ -144,6 +144,8 @@ public class Main {
 			
 			case 12:
 				allRooms = Globals.restore("savedCyoa");
+				currentRoom = allRooms.getCurrent();
+				printRoom(currentRoom,1,null);
 			break;
 				
 			default: 
@@ -472,7 +474,9 @@ public class Main {
 			
 			case 12:
 				allRooms = Globals.restore("savedCyoa");
-			return 2;
+				currentRoom = allRooms.getCurrent();
+				printRoom(currentRoom,1,null);
+			return 0;
 			
 			default:
 				System.out.println("\tWhoopsie. Try something else.");
@@ -518,7 +522,6 @@ public class Main {
 	    for (int i=0;i<strLen;i++) { 
 			clearScreen();
 			System.out.println(boldBlue+ "\"" +room._name + "\"" + normal);
-			System.out.println("room._numberOfVisits= " + room._numberOfVisits);
 			System.out.println();
 			printWraps(str[i]);
 

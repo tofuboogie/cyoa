@@ -79,7 +79,7 @@ public class Rooms implements Serializable {
 		
 		t.initializeRooms();
 		d.initializeRooms();
-		i.initializeItems();
+		i.initializeItems2();
 	}
 	
 	private void writeObject(ObjectOutputStream out) throws IOException{
@@ -91,7 +91,6 @@ public class Rooms implements Serializable {
 		out.writeObject(currentRoom);
 		out.writeObject(priorRoom);
 		//write Rooms
-		/*
 		out.writeObject(CottonCandyStand);
 		out.writeObject(MiniatureTrainStation);
 		out.writeObject(MiniatureTrainCars);
@@ -107,13 +106,11 @@ public class Rooms implements Serializable {
 		out.writeObject(Bathroom);
 		out.writeObject(DeepFriedTwinkie);
 		out.writeObject(Outbuilding);
-		*/
 		out.writeObject(Begin);
 		out.writeObject(FenceHole);
 		out.writeObject(Home);
 		out.writeObject(Work);
 		out.writeObject(Tracks);
-		/*
 		out.writeObject(Fence);
 		out.writeObject(TieShoes);
 		out.writeObject(FenceLock);
@@ -142,7 +139,6 @@ public class Rooms implements Serializable {
 		out.writeObject(PortaJon);
 		out.writeObject(BumperCars);
 		out.writeObject(TicketBooth);
-		*/
 		//write Items
 		out.writeObject(iYourself);
 		out.writeObject(iTshirt);
@@ -156,7 +152,7 @@ public class Rooms implements Serializable {
 		out.writeObject(iChairSwingDoor);
 		out.writeObject(iChairSwingDoorHandle);
 		out.writeObject(iChairSwingLever);
-		out.writeObject(iChairSwingTowerNearTopDoor); //unhide
+		out.writeObject(iChairSwingTowerNearTopDoor);
 		out.writeObject(iFlashlight);
 		//write Persons
 		out.writeObject(pMelissa);
@@ -173,7 +169,6 @@ public class Rooms implements Serializable {
 		currentRoom = (Room)in.readObject();
 		priorRoom = (Room)in.readObject();
 		//read Rooms
-		/*
 		CottonCandyStand = (Room)in.readObject();
 		MiniatureTrainStation = (Room)in.readObject();
 		MiniatureTrainCars = (Room)in.readObject();
@@ -189,14 +184,11 @@ public class Rooms implements Serializable {
 		Bathroom = (Room)in.readObject();
 		DeepFriedTwinkie = (Room)in.readObject();
 		Outbuilding = (Room)in.readObject();
-		*/
 		Begin = (Room)in.readObject();
-		System.out.println("Begin._numberOfVisits= " + Begin._numberOfVisits);
 		FenceHole = (Room)in.readObject();
 		Home = (Room)in.readObject();
 		Work = (Room)in.readObject();
 		Tracks = (Room)in.readObject();
-		/*
 		Fence = (Room)in.readObject();
 		TieShoes = (Room)in.readObject();
 		FenceLock = (Room)in.readObject();
@@ -225,7 +217,6 @@ public class Rooms implements Serializable {
 		PortaJon = (Room)in.readObject();
 		BumperCars = (Room)in.readObject();
 		TicketBooth = (Room)in.readObject();
-		*/
 		//read Items
 		Item[] items = {
 			iYourself,
@@ -261,6 +252,10 @@ public class Rooms implements Serializable {
 	
 	public void setCurrent(Room room){
 		currentRoom = room;
+	}
+	
+	public Room getCurrent(){
+		return currentRoom;
 	}
 			
 	public Room getPrevious() {

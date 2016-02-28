@@ -1,9 +1,31 @@
 package dtz.cyoa;
 import java.io.*;
+import java.util.logging.Logger;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.SimpleFormatter;
 
 public class Items extends Rooms implements Serializable {
 
+	Logger logger = Logger.getLogger("DTlogs");
+	FileHandler fh;
+	
 	public Items() {
+		try{
+			fh = new FileHandler("/home/dave/pgm/cyoaLog",true);
+			logger.addHandler(fh);
+			logger.setLevel(Level.ALL);
+			SimpleFormatter sf = new SimpleFormatter();
+			fh.setFormatter(sf);
+		
+		}
+		catch (SecurityException e){
+			e.printStackTrace();
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void initMemory(){
@@ -18,7 +40,7 @@ public class Items extends Rooms implements Serializable {
 	}	
 
 	public void initializeItems() {
-		
+		logger.log(Level.ALL,"iYourself.toString()= " + iYourself.toString() + "\n");
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor); 
@@ -43,6 +65,7 @@ public class Items extends Rooms implements Serializable {
 		);
 			
 		*/
+		/*
 		iYourself.set("yourself",
 			"You, and everything that makes you you. Your eyes, ears, mouth, hands, feet. The things you feel with. The things you push and pull with. You, indefatiguably you.", 
 			"is", null, "",false,false,false);
@@ -203,6 +226,41 @@ public class Items extends Rooms implements Serializable {
 
 	// End item definitions
 	}
+	
+	public void initializeItems2() {
+		String str = "";
+		for (StackTraceElement ste : Thread.currentThread().getStackTrace()){
+			str += ste.getClassName() + ":" + ste.getMethodName() + ":" + ste.getLineNumber() + "\n";
+		}	
+		logger.log(Level.ALL,"iYourself.toString()= " + iYourself.toString() + "\n");
+	
+			iYourself.set("yourself2",
+			"You, in init items 2.", 
+			"is", null, "",false,false,false);
+			
+			iYourself.addAction(
+			iChairSwingGrating, 
+			new String[] { "You pull on the grating and it budges. You pull harder and get it to rise up on one side, and you slide it a little to the right before releasing it and stumbling forward a little. \"Whew,\", you say, as you stand up straight to catch your breath.", "You pull on the grating again and this time you slide it all the way over onto the adjoining grass, exposing a service hole." }, 
+			new Item.Callback(){
+				public String update(int numberOfTries){
+					String str = "";
+					switch(numberOfTries){
+						case 1: // do nothing
+						break;
+						case 2: 
+							ChairSwing.setNext2(ChairSwingUnderGrating, "Service Tunnel", "Enter the hole.");
+						break;
+						default: 
+							str += "You've already moved the grating. Moving it again would only risk throwing out your back.";
+						break;
+					}
+					return str;
+				}
+			}
+		);
+	
+	}	
+		
 // End Items class
 }
 

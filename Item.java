@@ -70,6 +70,9 @@ public class Item implements Serializable {
 			 target = (Player)target;
 		}
 		
+		//test
+		if (_actions == null){ return this._name + "._actions is null"; }
+		
 		for (Action act : _actions){
 			if (act.itemTarget == target) {
 				int index = 0;
