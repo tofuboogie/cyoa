@@ -79,7 +79,7 @@ public class Rooms implements Serializable {
 		
 		t.initializeRooms();
 		d.initializeRooms();
-		i.initializeItems2();
+		i.initializeItemsActions();
 	}
 	
 	private void writeObject(ObjectOutputStream out) throws IOException{
@@ -218,6 +218,7 @@ public class Rooms implements Serializable {
 		BumperCars = (Room)in.readObject();
 		TicketBooth = (Room)in.readObject();
 		//read Items
+		/*
 		Item[] items = {
 			iYourself,
 			iTshirt,
@@ -238,8 +239,39 @@ public class Rooms implements Serializable {
 			items[i] = (Item)in.readObject();
 			items[i].initTransients(); // you get NullPointerExceptions wo this	
 		}
+		*/
+			iYourself = (Item)in.readObject();
+			iTshirt = (Item)in.readObject();
+			iLoveLocks = (Item)in.readObject();
+			iLoveLockKey = (Item)in.readObject();
+			iThingamabob = (Item)in.readObject();
+			iCrowbar = (Item)in.readObject();
+			iMaintShedFD = (Item)in.readObject();
+			iTissue = (Item)in.readObject();
+			iChairSwingGrating = (Item)in.readObject();
+			iChairSwingDoor = (Item)in.readObject();
+			iChairSwingDoorHandle = (Item)in.readObject();
+			iChairSwingLever = (Item)in.readObject();
+			iChairSwingTowerNearTopDoor = (Item)in.readObject();
+			iFlashlight = (Item)in.readObject();
+		
 		//read Persons
 		pMelissa = (Person)in.readObject();
+		
+			iYourself.initTransients();
+			iTshirt.initTransients();
+			iLoveLocks.initTransients();
+			iLoveLockKey.initTransients();
+			iThingamabob.initTransients();
+			iCrowbar.initTransients();
+			iMaintShedFD.initTransients();
+			iTissue.initTransients();
+			iChairSwingGrating.initTransients();
+			iChairSwingDoor.initTransients();
+			iChairSwingDoorHandle.initTransients();
+			iChairSwingLever.initTransients();
+			iChairSwingTowerNearTopDoor.initTransients();
+			iFlashlight.initTransients();
 	}
 	
 	public void removePreviousRooms(int howMany){

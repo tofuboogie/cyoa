@@ -113,7 +113,7 @@ public class Item implements Serializable {
 	
 	public void set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor) {
-		if (!Globals.restoredFromSavedState){
+		//if (!Globals.restoredFromSavedState){
 			this._name = name;
 			this._description = description;
 			this._is_are = is_are;
@@ -122,7 +122,7 @@ public class Item implements Serializable {
 			this._quiet = quiet;
 			this._open = open;
 			this._isDoor = isDoor;
-		}
+		//}
 	}
 	
 	public void set(String name, String description){

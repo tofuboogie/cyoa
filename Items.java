@@ -17,7 +17,6 @@ public class Items extends Rooms implements Serializable {
 			logger.setLevel(Level.ALL);
 			SimpleFormatter sf = new SimpleFormatter();
 			fh.setFormatter(sf);
-		
 		}
 		catch (SecurityException e){
 			e.printStackTrace();
@@ -39,33 +38,15 @@ public class Items extends Rooms implements Serializable {
 	
 	}	
 
-	public void initializeItems() {
-		logger.log(Level.ALL,"iYourself.toString()= " + iYourself.toString() + "\n");
+	public void initializeItems() {	
+	
+		initializeItemsActions();
+		
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor); 
-					
-		<Item object>.addAction(
-			Object itemTarget, 
-			new String[] { "ACTIONDESC1", "ACTIONDESC2", "ACTIONDESC3", ... }, 
-			new Item.Callback(){
-				public String update(int numberOfTries){
-					String str = "";
-					switch(numberOfTries){
-						case 1: 	
-						break;
-						case 2: break;
-						case 3: break;
-						default: 
-						break;
-					}
-					return str;
-				}
-			}
-		);
-			
 		*/
-		/*
+
 		iYourself.set("yourself",
 			"You, and everything that makes you you. Your eyes, ears, mouth, hands, feet. The things you feel with. The things you push and pull with. You, indefatiguably you.", 
 			"is", null, "",false,false,false);
@@ -91,7 +72,6 @@ public class Items extends Rooms implements Serializable {
 		iChairSwingTowerNearTopDoor.set("roof hatch","A thin square metal door on the ceiling. It has a lever on the right side, which rattles when the wind blows outside."); 
 		iChairSwingTowerNearTopDoor.makeIntoAdoor(iYourself,ChairSwingTowerNearTop, 		ChairSwingTowerOnTop, "Up","Go to the roof"); 
 		
-		
 		iFlashlight.set("flashlight",
 			"An old metal flashlight with fluted indentions running its length. It's weight feels good in your hand.", "is", null,"",false,false,false);
 		iTshirt.set("a corny t-shirt","The t-shirt is black with an airbrushed image of Yanni's face, which covers your entire chest. He is staring blissfully into the distance, as his hair blows in the wind.", "is",null,"",false,false,false); 
@@ -100,7 +80,30 @@ public class Items extends Rooms implements Serializable {
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor); */
+	}
 					
+		
+	public void initializeItemsActions() {	
+		/*	
+		<Item object>.addAction(
+			Object itemTarget, 
+			new String[] { "ACTIONDESC1", "ACTIONDESC2", "ACTIONDESC3", ... }, 
+			new Item.Callback(){
+				public String update(int numberOfTries){
+					String str = "";
+					switch(numberOfTries){
+						case 1: 	
+						break;
+						case 2: break;
+						case 3: break;
+						default: 
+						break;
+					}
+					return str;
+				}
+			}
+		);	
+		*/
 					
 				
 		// BEGIN iYourself ------------------------------------------------------------------------------
@@ -227,17 +230,24 @@ public class Items extends Rooms implements Serializable {
 	// End item definitions
 	}
 	
+	/*
 	public void initializeItems2() {
+
 		String str = "";
 		for (StackTraceElement ste : Thread.currentThread().getStackTrace()){
 			str += ste.getClassName() + ":" + ste.getMethodName() + ":" + ste.getLineNumber() + "\n";
 		}	
-		logger.log(Level.ALL,"iYourself.toString()= " + iYourself.toString() + "\n");
+
 	
 			iYourself.set("yourself2",
 			"You, in init items 2.", 
 			"is", null, "",false,false,false);
 			
+		logger.log(Level.ALL,"iYourself.toString()= " + iYourself.toString());
+		logger.log(Level.ALL,"iYourself._name= " + iYourself._name);
+		logger.log(Level.ALL,"You.get(1)._name= " + You.get(1)._name);
+		logger.log(Level.ALL,"You.get(1).toString()= " + You.get(1).toString() + "\n");
+
 			iYourself.addAction(
 			iChairSwingGrating, 
 			new String[] { "You pull on the grating and it budges. You pull harder and get it to rise up on one side, and you slide it a little to the right before releasing it and stumbling forward a little. \"Whew,\", you say, as you stand up straight to catch your breath.", "You pull on the grating again and this time you slide it all the way over onto the adjoining grass, exposing a service hole." }, 
@@ -259,7 +269,8 @@ public class Items extends Rooms implements Serializable {
 			}
 		);
 	
-	}	
+	}
+	*/	
 		
 // End Items class
 }
