@@ -39,6 +39,7 @@ public class Item implements Serializable {
 	}
 	
 	public void addAction(Object itemTarget1, String[] actionText1, Callback callback1){
+		if (_actions == null) { _actions = new ArrayList<Action>(); }
 		_actions.add(new Action(itemTarget1, actionText1, callback1));
 	}
 	
@@ -101,14 +102,14 @@ public class Item implements Serializable {
 		_quiet = false;	
 		_open = false;
 		_isDoor = false;
-		//_actions = new ArrayList<Action>();
+		_actions = new ArrayList<Action>();
 		_switchedOnStartTime = 0;
 		_switchedOnTotalTime = 0;	
 		_takenStartTime = 0;	
 	}
 	
 	public void initTransients(){
-		_actions = new ArrayList<Action>();
+		//_actions = new ArrayList<Action>();
 	}
 	
 	public void set(String name, String description, String is_are, Item requires,

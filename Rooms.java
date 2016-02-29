@@ -51,6 +51,43 @@ private Room[] dt_rooms = { Begin, FenceHole, Home, Work, Tracks, Fence, TieShoe
 
 private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingamabob,iCrowbar, iMaintShedFD, iTissue, iChairSwingGrating, iChairSwingDoor, iChairSwingDoorHandle, iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight};
 	
+	public void changeReferenceItems(){ // bc Java has no iYourself**
+		iYourself = items[0];
+		iTshirt = items[1];
+		iLoveLocks = items[2]; 
+		iLoveLockKey = items[3];
+		iThingamabob = items[4];
+		iCrowbar = items[5];
+		iMaintShedFD = items[6];
+		iTissue = items[7];
+		iChairSwingGrating = items[8];
+		iChairSwingDoor = items[9];
+		iChairSwingDoorHandle = items[10];
+		iChairSwingLever = items[11];
+		iChairSwingTowerNearTopDoor = items[12];
+		iFlashlight = items[13];
+		
+		/*
+		iYourself.initTransients();
+			iTshirt.initTransients();
+			iLoveLocks.initTransients();
+			iLoveLockKey.initTransients();
+			iThingamabob.initTransients();
+			iCrowbar.initTransients();
+			iMaintShedFD.initTransients();
+			iTissue.initTransients();
+			iChairSwingGrating.initTransients();
+			iChairSwingDoor.initTransients();
+			iChairSwingDoorHandle.initTransients();
+			iChairSwingLever.initTransients();
+			iChairSwingTowerNearTopDoor.initTransients();
+			iFlashlight.initTransients();
+		*/
+		
+//MyLogger.log("iYourself.toString() and items[0].toString() = " +iYourself.toString() +" "+ items[0].toString());
+//MyLogger.log("iCrowbar.toString() and items[5].toString() = " +iCrowbar.toString() +" "+ items[5].toString());
+	}
+	
 	// constructor
 	public Rooms(){
 	}
@@ -146,10 +183,11 @@ private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingama
 		out.writeObject(BumperCars);
 		out.writeObject(TicketBooth);
 		//write Items
+		/*
 		for (int i=0;i<items.length;i++){
 			out.writeObject(items[i]);
 		}
-		/*
+		*/
 		out.writeObject(iYourself);
 		out.writeObject(iTshirt);
 		out.writeObject(iLoveLocks);
@@ -164,7 +202,7 @@ private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingama
 		out.writeObject(iChairSwingLever);
 		out.writeObject(iChairSwingTowerNearTopDoor);
 		out.writeObject(iFlashlight);
-		*/
+		
 		//write Persons
 		out.writeObject(pMelissa);
 	}
@@ -229,29 +267,11 @@ private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingama
 		BumperCars = (Room)in.readObject();
 		TicketBooth = (Room)in.readObject();
 		//read Items
-		/*
-		Item[] items = {
-			iYourself,
-			iTshirt,
-			iLoveLocks,
-			iLoveLockKey,
-			iThingamabob,
-			iCrowbar,
-			iMaintShedFD,
-			iTissue,
-			iChairSwingGrating,
-			iChairSwingDoor,
-			iChairSwingDoorHandle,
-			iChairSwingLever,
-			iChairSwingTowerNearTopDoor,
-			iFlashlight
-		};
-		
 		for (int i = 0;i<items.length;i++){
 			items[i] = (Item)in.readObject();
-			//items[i].initTransients(); // you get NullPointerExceptions wo this	
 		}
-		*/
+		changeReferenceItems();
+		/*
 			iYourself = (Item)in.readObject();
 			iTshirt = (Item)in.readObject();
 			iLoveLocks = (Item)in.readObject();
@@ -266,25 +286,12 @@ private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingama
 			iChairSwingLever = (Item)in.readObject();
 			iChairSwingTowerNearTopDoor = (Item)in.readObject();
 			iFlashlight = (Item)in.readObject();
-		
+		*/
 		
 		//read Persons
 		pMelissa = (Person)in.readObject();
 		
-			iYourself.initTransients();
-			iTshirt.initTransients();
-			iLoveLocks.initTransients();
-			iLoveLockKey.initTransients();
-			iThingamabob.initTransients();
-			iCrowbar.initTransients();
-			iMaintShedFD.initTransients();
-			iTissue.initTransients();
-			iChairSwingGrating.initTransients();
-			iChairSwingDoor.initTransients();
-			iChairSwingDoorHandle.initTransients();
-			iChairSwingLever.initTransients();
-			iChairSwingTowerNearTopDoor.initTransients();
-			iFlashlight.initTransients();
+			
 		
 	}
 	

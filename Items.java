@@ -63,7 +63,10 @@ public class Items extends Rooms implements Serializable {
 					
 		
 	public void initializeItemsActions() {	
-	//MyLogger.log("iYourself.toString() = " +iYourself.toString());
+	
+	
+	
+	MyLogger.log("iYourself.toString() = " +iYourself.toString());
 		/*	
 		<Item object>.addAction(
 			Object itemTarget, 
