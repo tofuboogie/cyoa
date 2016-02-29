@@ -1,30 +1,9 @@
 package dtz.cyoa;
 import java.io.*;
-import java.util.logging.Logger;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.SimpleFormatter;
 
 public class Items extends Rooms implements Serializable {
 
-	Logger logger = Logger.getLogger("DTlogs");
-	FileHandler fh;
-	
 	public Items() {
-		try{
-			fh = new FileHandler("/home/dave/pgm/cyoaLog",true);
-			logger.addHandler(fh);
-			logger.setLevel(Level.ALL);
-			SimpleFormatter sf = new SimpleFormatter();
-			fh.setFormatter(sf);
-		}
-		catch (SecurityException e){
-			e.printStackTrace();
-		}
-		catch (IOException e){
-			e.printStackTrace();
-		}
-		
 	}
 
 	public void initMemory(){
@@ -39,7 +18,7 @@ public class Items extends Rooms implements Serializable {
 	}	
 
 	public void initializeItems() {	
-	
+		
 		initializeItemsActions();
 		
 		/*
@@ -84,6 +63,7 @@ public class Items extends Rooms implements Serializable {
 					
 		
 	public void initializeItemsActions() {	
+	//MyLogger.log("iYourself.toString() = " +iYourself.toString());
 		/*	
 		<Item object>.addAction(
 			Object itemTarget, 

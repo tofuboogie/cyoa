@@ -101,7 +101,7 @@ public class Item implements Serializable {
 		_quiet = false;	
 		_open = false;
 		_isDoor = false;
-		_actions = new ArrayList<Action>();
+		//_actions = new ArrayList<Action>();
 		_switchedOnStartTime = 0;
 		_switchedOnTotalTime = 0;	
 		_takenStartTime = 0;	

@@ -6,6 +6,7 @@ import java.io.*;
 
 public class Rooms implements Serializable {
 
+	protected static Player You;
 	public static Stack<Room> _stkPrevious = new Stack<Room>();		// previous rooms chain
 	public static Room currentRoom; // keep track of current room in Main
 	public static Room priorRoom; // used to modify Room descriptions based from whence you come
@@ -43,7 +44,12 @@ public class Rooms implements Serializable {
 	
 	//persons
 	protected static Person pMelissa;
-	protected static Player You;
+	
+	private Room[] tz_rooms = {CottonCandyStand, MiniatureTrainStation, MiniatureTrainCars, ChairSwing, ChairSwingTower, ChairSwingSeat, ChairSwingUnderGrating, ChairSwingTowerMid, ChairSwingTowerNearTop, ChairSwingTowerOnTop, HiStriker, AirRifleSidestall, Bathroom, DeepFriedTwinkie, Outbuilding};
+
+private Room[] dt_rooms = { Begin, FenceHole, Home, Work, Tracks, Fence, TieShoes, FenceLock, Tracks2, ShoesNoise, FreakOut, Melissa, TakeLoveLock, AskMelissa, MaintenanceShed, MaintenanceRearDoor, MaintenanceRearWindow, MaintenanceShedFront, MaintShedFrontDoor, MaintShedInside, TakeCrowbar, Gazebo, BurlesqueParlor, FerrisWheel, FunnelcakeStand, PublicSquare, ArcherySidestall,BasketballSidestall, HotDogCart, MerryGoRound, PortaJon, BumperCars, TicketBooth};
+
+private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingamabob,iCrowbar, iMaintShedFD, iTissue, iChairSwingGrating, iChairSwingDoor, iChairSwingDoorHandle, iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight};
 	
 	// constructor
 	public Rooms(){
@@ -140,6 +146,10 @@ public class Rooms implements Serializable {
 		out.writeObject(BumperCars);
 		out.writeObject(TicketBooth);
 		//write Items
+		for (int i=0;i<items.length;i++){
+			out.writeObject(items[i]);
+		}
+		/*
 		out.writeObject(iYourself);
 		out.writeObject(iTshirt);
 		out.writeObject(iLoveLocks);
@@ -154,6 +164,7 @@ public class Rooms implements Serializable {
 		out.writeObject(iChairSwingLever);
 		out.writeObject(iChairSwingTowerNearTopDoor);
 		out.writeObject(iFlashlight);
+		*/
 		//write Persons
 		out.writeObject(pMelissa);
 	}
@@ -235,9 +246,10 @@ public class Rooms implements Serializable {
 			iChairSwingTowerNearTopDoor,
 			iFlashlight
 		};
+		
 		for (int i = 0;i<items.length;i++){
 			items[i] = (Item)in.readObject();
-			items[i].initTransients(); // you get NullPointerExceptions wo this	
+			//items[i].initTransients(); // you get NullPointerExceptions wo this	
 		}
 		*/
 			iYourself = (Item)in.readObject();
@@ -254,6 +266,7 @@ public class Rooms implements Serializable {
 			iChairSwingLever = (Item)in.readObject();
 			iChairSwingTowerNearTopDoor = (Item)in.readObject();
 			iFlashlight = (Item)in.readObject();
+		
 		
 		//read Persons
 		pMelissa = (Person)in.readObject();
@@ -272,6 +285,7 @@ public class Rooms implements Serializable {
 			iChairSwingLever.initTransients();
 			iChairSwingTowerNearTopDoor.initTransients();
 			iFlashlight.initTransients();
+		
 	}
 	
 	public void removePreviousRooms(int howMany){
