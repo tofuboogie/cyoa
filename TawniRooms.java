@@ -39,9 +39,54 @@ public class TawniRooms extends Rooms implements Serializable {
 		ChairSwing = new Room(); ChairSwingTower = new Room(); ChairSwingSeat = new Room();
 		ChairSwingUnderGrating = new Room(); ChairSwingTowerMid = new Room(); 
 		ChairSwingTowerNearTop = new Room(); ChairSwingTowerOnTop = new Room();
+		TauntedHoRse = new Room();
 	}
 	
 	public void initializeRooms() {
+	
+	
+	// Room: TauntedHoRse ----------------------------------------------------------------------------------------
+	TauntedHoRse.setDescription(
+	"Haunted House",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
 			
 	// Room: CottonCandyStand ---------------------------------------------------------------------------
 	CottonCandyStand.setDescription(
