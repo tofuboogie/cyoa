@@ -39,6 +39,7 @@ public class Item implements Serializable {
 	}
 	
 	public void addAction(Object itemTarget1, String[] actionText1, Callback callback1){
+		if (_actions == null) { _actions = new ArrayList<Action>(); }
 		_actions.add(new Action(itemTarget1, actionText1, callback1));
 	}
 	
@@ -69,6 +70,9 @@ public class Item implements Serializable {
 		else if (target instanceof Player) {
 			 target = (Player)target;
 		}
+		
+		//test
+		if (_actions == null){ return this._name + "._actions is null"; }
 		
 		for (Action act : _actions){
 			if (act.itemTarget == target) {
@@ -104,9 +108,13 @@ public class Item implements Serializable {
 		_takenStartTime = 0;	
 	}
 	
+	public void initTransients(){
+		//_actions = new ArrayList<Action>();
+	}
+	
 	public void set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor) {
-		if (!Globals.restoredFromSavedState){
+		//if (!Globals.restoredFromSavedState){
 			this._name = name;
 			this._description = description;
 			this._is_are = is_are;
@@ -115,7 +123,7 @@ public class Item implements Serializable {
 			this._quiet = quiet;
 			this._open = open;
 			this._isDoor = isDoor;
-		}
+		//}
 	}
 	
 	public void set(String name, String description){

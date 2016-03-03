@@ -42,8 +42,9 @@ public final class Globals implements Serializable{
 			FileOutputStream fs = new FileOutputStream(file);
 			ObjectOutputStream os = new ObjectOutputStream(fs);
 					
+			//os.writeObject(rooms.You);
 			os.writeObject(rooms);
-		
+			
 			os.close();
 			fs.close();
 			System.out.println("saved successfully.");
@@ -60,6 +61,7 @@ public final class Globals implements Serializable{
 			ObjectInputStream os = new ObjectInputStream(fs);
 		
 			Rooms rooms = (Rooms) os.readObject();
+			//layer you = (Player)os.readObject();
 
 			restoredFromSavedState = true;
 			rooms.initAfterRestore();
@@ -70,7 +72,8 @@ public final class Globals implements Serializable{
 			return rooms;
 		}	
 		catch (Exception e){
-			System.out.println(e.toString() + " : restore failed.");	
+			System.out.println(e.toString() + " : restore failed.");
+			e.printStackTrace();	
 		}
 		return null;
 	}	

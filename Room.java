@@ -24,7 +24,7 @@ public class Room implements Serializable{
 	public String _btn1Txt, _btn2Txt, _btn3Txt;			// short sentence next to the button
 	public ArrayList<Item> _items; 
 	public ArrayList<Person> _persons;
-	private int _numberOfVisits;
+	public int _numberOfVisits;
 	public transient Callback _callback;
 	private boolean _isDoor;
 	
