@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class TawniRooms extends Rooms implements Serializable {
 
+
+	//This is only a test...
 	/*
 	1 Cotton Candy Stand!
 	2 Miniature train!
