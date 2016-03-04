@@ -5,22 +5,25 @@ import java.util.ArrayList;
 
 public class TawniRooms extends Rooms implements Serializable {
 
+
+	//This is only a figment
+	//This is another test
 	/*
-	1 Cotton Candy Stand
-	2 Miniature train:
-	3 Chairswing:
-	4 High-striker (Hit-the-Bell):
-	5 Water Rifle game:
-	6 Balloon and Darts board:
-	7 Deep-fried Twinkie stand:
+	1 Cotton Candy Stand!
+	2 Miniature train!
+	3 Chairswing!
+	4 High-striker (Hit-the-Bell)
+	5 Water Rifle game
+	6 Balloon and Darts board
+	7 Deep-fried Twinkie stand
 	*7.5 Bathroom
-	8 H(T)aunted Hou(R)se:
-	9 Circus Tent:
-	10 Tilt-A-Whirl:
-	11 Mechanical bull:
-	12 Picnic area:
-	13 Cablecar:
-	14 Outbuilding:
+	8 H(T)aunted Hou(R)se
+	9 Circus Tent
+	10 Tilt-A-Whirl
+	11 Mechanical bull
+	12 Picnic area
+	13 Cablecar
+	14 Outbuilding
 	*/
 
 	public TawniRooms() {
@@ -39,10 +42,114 @@ public class TawniRooms extends Rooms implements Serializable {
 		ChairSwing = new Room(); ChairSwingTower = new Room(); ChairSwingSeat = new Room();
 		ChairSwingUnderGrating = new Room(); ChairSwingTowerMid = new Room(); 
 		ChairSwingTowerNearTop = new Room(); ChairSwingTowerOnTop = new Room();
+		TauntedHoRse = new Room();
+		MechanicalBull = new Room();
 	}
 	
 	public void initializeRooms() {
-			
+	
+	// Room: MechanicalBull ----------------------------------------------------------------------------
+	MechanicalBull.setDescription(
+	"Mechanical bull ride",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d,e,f,g;
+		
+			if (You.areWith(pMelissa)) {
+				e=" You and Melissa spot a rusted metal mechanical bull surrounded by a nearly deflated air cushion. Mel scrunches her beanie up on her head and squeezes the bottom out to resemble a hat brim. She tosses an invisible lasso at the bull, cries out 'Yee-Haw!' and pulls herself toward it. She hops up on the bull with a triumphant grin, tilts her makeshift cowboy hat at you, and drawls out 'There's a new sheriff in town.'";
+				f=" The inflatable cushion lets out a mournful sigh when Mel hops off of the bull.";
+				g=" Mel picks a dandelion and tucks it behind the bull's ear.";
+			} else { 
+				e="";f="";g="";
+		    }
+			// if (You.have(ITEM)) { ACTION } else { ACTION }
+			// if (ROOM.hasItem(ITEM) { ACTION } else { ACTION }
+			// if (ROOM.hasPerson(PERSON) { ACTION } else { ACTION }
+			// if (You.have(ITEM)) { ACTION } else { ACTION };
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+	
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"You spot a rusted mechanical bull surrounded by a mostly deflated air cushion. The moonlight reflects off of the bull's metal eyes, giving them an eerily lifelike gleam."
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"You rub some rust from the side of the bull, revealing an etched heart with the initials M & Z inside."
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"You lay down on the air cushion, hoping to take a peaceful nap. Air sighs from the cushion as you try to get comfortable."
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"After dreaming about artificially intelligent bovine robots taking over the world, you awaken on the hard ground. The cushion has completely deflated."
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+
+
+
+MechanicalBull.setOtherRooms(
+PicnicArea, CableCar, null,
+"Picnic Tables","Go sit down.",
+"Cable Cars","Go explore the cable cars.",
+"",""
+);
+
+						
+	
+	// Room: TauntedHoRse ----------------------------------------------------------------------------------------
+	TauntedHoRse.setDescription(
+	"Haunted House",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+	
 	// Room: CottonCandyStand ---------------------------------------------------------------------------
 	CottonCandyStand.setDescription(
 	"Cotton Candy Stand",
@@ -99,26 +206,28 @@ public class TawniRooms extends Rooms implements Serializable {
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
-			String a,b,c,d,e;
+			String a,b,c,d,e,f;
 		
 			if (You.areWith(pMelissa)) { 
-				a="Melissa walks out onto the train tracks"; 
-				b="Mel busts a cap in your ass";
-				c="Mel picks her nose and flicks a bogie at you";
+				a="Mel grabs a tree branch and walks out onto the train tracks, balancing on one of the rails like a tight-rope walker. "; 
+				b="After 10 feet, Mel loses her balance and falls off. She lets out a wail as she acts like she's falling from high in the air, and then crumbles to the ground.";
+				c="When you walk to her, she grabs your arm and pulls herself up. With a somber gaze, she says 'You saved my life. I am eternally indebted to you.";
+				d="You and Mel are standing on the tracks. There are crickets chirping in the tall grasses."
 			} 
 			else { 
 				a=""; 
 				b=""; 
-				c="You pick your nose";
+				c="";
+				d="";
 			}
 				
 			if (You.have(iFlashlight) && iFlashlight.isOn()) {
-				d="You narrowly avoid jabbing yourself in the eye with your fingernail"; 
-				e="You see the banshee that will later eat you.";
+				e="You narrowly avoid jabbing yourself in the eye with your fingernail"; 
+				f="You see the banshee that will later eat you.";
 			} 
 			else { 
-				d="You smack yourself in the forehead with your fingernail"; 
-				e="You cannot sense your impending death.";
+				e="You smack yourself in the forehead with your fingernail"; 
+				f="You cannot sense your impending death.";
 			}
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
@@ -228,7 +337,7 @@ public class TawniRooms extends Rooms implements Serializable {
 			String strTemp[];
 			String a,b,c,d;
 		
-			// if (You.areWith(PERSON)) { ACTION } else { ACTION }
+			//if (You.areWith(pMelissa)) { ACTION } else { ACTION }
 			// if (You.have(ITEM)) { ACTION } else { ACTION }
 			// if (ROOM.hasItem(ITEM) { ACTION } else { ACTION }
 			// if (ROOM.hasPerson(PERSON) { ACTION } else { ACTION }
