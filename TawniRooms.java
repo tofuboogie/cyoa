@@ -5,6 +5,9 @@ import java.util.ArrayList;
 
 public class TawniRooms extends Rooms implements Serializable {
 
+
+	//This is only a figment
+	//This is another test
 	/*
 	1 Cotton Candy Stand!
 	2 Miniature train!
@@ -39,13 +42,13 @@ public class TawniRooms extends Rooms implements Serializable {
 		ChairSwing = new Room(); ChairSwingTower = new Room(); ChairSwingSeat = new Room();
 		ChairSwingUnderGrating = new Room(); ChairSwingTowerMid = new Room(); 
 		ChairSwingTowerNearTop = new Room(); ChairSwingTowerOnTop = new Room();
+		TauntedHoRse = new Room();
 		MechanicalBull = new Room();
-		
 	}
 	
 	public void initializeRooms() {
 	
-// Room: MechanicalBull ----------------------------------------------------------------------------
+	// Room: MechanicalBull ----------------------------------------------------------------------------
 	MechanicalBull.setDescription(
 	"Mechanical bull ride",
 	new Room.Description() {
@@ -54,7 +57,7 @@ public class TawniRooms extends Rooms implements Serializable {
 			String a,b,c,d,e,f,g;
 		
 			if (You.areWith(pMelissa)) {
-				e=" You and Melissa spot a rusted metal mechanical bull surrounded by a nearly deflated air cushion. Mel scrunches her beanie up on her head and squeezes the bottom out to resemble a hat brim. She tosses an invisible lasso at the bull, cries out 'Yee-Haw!' and pulls herself toward it. She hops up on the bull with a triumphant grin, tilts her makeshift cowboy hat at you, and drawls out 'Thar's a new sheriff in town.'";
+				e=" You and Melissa spot a rusted metal mechanical bull surrounded by a nearly deflated air cushion. Mel scrunches her beanie up on her head and squeezes the bottom out to resemble a hat brim. She tosses an invisible lasso at the bull, cries out 'Yee-Haw!' and pulls herself toward it. She hops up on the bull with a triumphant grin, tilts her makeshift cowboy hat at you, and drawls out 'There's a new sheriff in town.'";
 				f=" The inflatable cushion lets out a mournful sigh when Mel hops off of the bull.";
 				g=" Mel picks a dandelion and tucks it behind the bull's ear.";
 			} else { 
@@ -94,13 +97,59 @@ public class TawniRooms extends Rooms implements Serializable {
 	});
 
 
+
 MechanicalBull.setOtherRooms(
 PicnicArea, CableCar, null,
 "Picnic Tables","Go sit down.",
 "Cable Cars","Go explore the cable cars.",
 "",""
 );
+
+						
+	
+	// Room: TauntedHoRse ----------------------------------------------------------------------------------------
+	TauntedHoRse.setDescription(
+	"Haunted House",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
 		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+	
 	// Room: CottonCandyStand ---------------------------------------------------------------------------
 	CottonCandyStand.setDescription(
 	"Cotton Candy Stand",
@@ -288,7 +337,7 @@ PicnicArea, CableCar, null,
 			String strTemp[];
 			String a,b,c,d;
 		
-			if (You.areWith(pMelissa)) { ACTION } else { ACTION }
+			//if (You.areWith(pMelissa)) { ACTION } else { ACTION }
 			// if (You.have(ITEM)) { ACTION } else { ACTION }
 			// if (ROOM.hasItem(ITEM) { ACTION } else { ACTION }
 			// if (ROOM.hasPerson(PERSON) { ACTION } else { ACTION }
