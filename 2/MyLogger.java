@@ -14,7 +14,7 @@ public final class MyLogger {
 	public static void log(String str){
 	
 		try{
-			fh = new FileHandler("/home/dave/pgm/cyoaLog",true);
+			fh = new FileHandler("/home/dave/pgm/cyoaLog/log",true);
 			logger.addHandler(fh);
 			logger.setLevel(Level.ALL);
 			SimpleFormatter sf = new SimpleFormatter();

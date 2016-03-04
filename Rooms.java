@@ -45,13 +45,15 @@ public class Rooms implements Serializable {
 	//persons
 	protected static Person pMelissa;
 	
+	//bulk operations
 	private Room[] tz_rooms = {CottonCandyStand, MiniatureTrainStation, MiniatureTrainCars, ChairSwing, ChairSwingTower, ChairSwingSeat, ChairSwingUnderGrating, ChairSwingTowerMid, ChairSwingTowerNearTop, ChairSwingTowerOnTop, HiStriker, AirRifleSidestall, Bathroom, DeepFriedTwinkie, Outbuilding};
 
-private Room[] dt_rooms = { Begin, FenceHole, Home, Work, Tracks, Fence, TieShoes, FenceLock, Tracks2, ShoesNoise, FreakOut, Melissa, TakeLoveLock, AskMelissa, MaintenanceShed, MaintenanceRearDoor, MaintenanceRearWindow, MaintenanceShedFront, MaintShedFrontDoor, MaintShedInside, TakeCrowbar, Gazebo, BurlesqueParlor, FerrisWheel, FunnelcakeStand, PublicSquare, ArcherySidestall,BasketballSidestall, HotDogCart, MerryGoRound, PortaJon, BumperCars, TicketBooth};
+	private Room[] dt_rooms = { Begin, FenceHole, Home, Work, Tracks, Fence, TieShoes, FenceLock, Tracks2, ShoesNoise, FreakOut, Melissa, TakeLoveLock, AskMelissa, MaintenanceShed, MaintenanceRearDoor, MaintenanceRearWindow, MaintenanceShedFront, MaintShedFrontDoor, MaintShedInside, TakeCrowbar, Gazebo, BurlesqueParlor, FerrisWheel, FunnelcakeStand, PublicSquare, ArcherySidestall,BasketballSidestall, HotDogCart, MerryGoRound, PortaJon, BumperCars, TicketBooth};
 
-private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingamabob,iCrowbar, iMaintShedFD, iTissue, iChairSwingGrating, iChairSwingDoor, iChairSwingDoorHandle, iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight};
+	private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingamabob,iCrowbar, iMaintShedFD, iTissue, iChairSwingGrating, iChairSwingDoor, iChairSwingDoorHandle, iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight};
 	
 	public void changeReferenceItems(){ // bc Java has no iYourself**
+	MyLogger.log("hello world");
 		iYourself = items[0];
 		iTshirt = items[1];
 		iLoveLocks = items[2]; 
@@ -66,27 +68,9 @@ private Item[] items = { iYourself, iTshirt, iLoveLocks, iLoveLockKey, iThingama
 		iChairSwingLever = items[11];
 		iChairSwingTowerNearTopDoor = items[12];
 		iFlashlight = items[13];
-		
-		/*
-		iYourself.initTransients();
-			iTshirt.initTransients();
-			iLoveLocks.initTransients();
-			iLoveLockKey.initTransients();
-			iThingamabob.initTransients();
-			iCrowbar.initTransients();
-			iMaintShedFD.initTransients();
-			iTissue.initTransients();
-			iChairSwingGrating.initTransients();
-			iChairSwingDoor.initTransients();
-			iChairSwingDoorHandle.initTransients();
-			iChairSwingLever.initTransients();
-			iChairSwingTowerNearTopDoor.initTransients();
-			iFlashlight.initTransients();
-		*/
-		
-//MyLogger.log("iYourself.toString() and items[0].toString() = " +iYourself.toString() +" "+ items[0].toString());
-//MyLogger.log("iCrowbar.toString() and items[5].toString() = " +iCrowbar.toString() +" "+ items[5].toString());
 	}
+	
+	//end bulk operations
 	
 	// constructor
 	public Rooms(){
