@@ -94,10 +94,10 @@ public class TawniRooms extends Rooms implements Serializable {
 	});
 
 
-MaintenanceShed.setOtherRooms(
-MaintenanceRearDoor, MaintenanceShedFront, null,
-"Door","Try to open the door.",
-"Maintenance Shed (more)","Walk around and explore the shed some more.",
+MechanicalBull.setOtherRooms(
+PicnicArea, CableCar, null,
+"Picnic Tables","Go sit down.",
+"Cable Cars","Go explore the cable cars.",
 "",""
 );
 		
@@ -157,26 +157,28 @@ MaintenanceRearDoor, MaintenanceShedFront, null,
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
-			String a,b,c,d,e;
+			String a,b,c,d,e,f;
 		
 			if (You.areWith(pMelissa)) { 
-				a="Melissa walks out onto the train tracks, balancing on one of the rails. "; 
-				b="Mel busts a cap in your ass";
-				c="Mel picks her nose and flicks a bogie at you";
+				a="Mel grabs a tree branch and walks out onto the train tracks, balancing on one of the rails like a tight-rope walker. "; 
+				b="After 10 feet, Mel loses her balance and falls off. She lets out a wail as she acts like she's falling from high in the air, and then crumbles to the ground.";
+				c="When you walk to her, she grabs your arm and pulls herself up. With a somber gaze, she says 'You saved my life. I am eternally indebted to you.";
+				d="You and Mel are standing on the tracks. There are crickets chirping in the tall grasses."
 			} 
 			else { 
 				a=""; 
 				b=""; 
-				c="You pick your nose";
+				c="";
+				d="";
 			}
 				
 			if (You.have(iFlashlight) && iFlashlight.isOn()) {
-				d="You narrowly avoid jabbing yourself in the eye with your fingernail"; 
-				e="You see the banshee that will later eat you.";
+				e="You narrowly avoid jabbing yourself in the eye with your fingernail"; 
+				f="You see the banshee that will later eat you.";
 			} 
 			else { 
-				d="You smack yourself in the forehead with your fingernail"; 
-				e="You cannot sense your impending death.";
+				e="You smack yourself in the forehead with your fingernail"; 
+				f="You cannot sense your impending death.";
 			}
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
