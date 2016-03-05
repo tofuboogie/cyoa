@@ -10,7 +10,7 @@ public class DaveRooms extends Rooms implements Serializable {
 	
 	public void initMemory(){
 	
-		Begin1 = new Room();
+		Begin = new Room();
 		Home = new Room(); Work = new Room(); Tracks = new Room(); Fence = new Room();
 		TieShoes = new Room(); FenceLock = new Room(); FenceHole = new Room();
 		Tracks2 = new Room(); ShoesNoise = new Room(); FreakOut = new Room();

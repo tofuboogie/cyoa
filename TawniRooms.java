@@ -42,8 +42,8 @@ public class TawniRooms extends Rooms implements Serializable {
 		ChairSwing = new Room(); ChairSwingTower = new Room(); ChairSwingSeat = new Room();
 		ChairSwingUnderGrating = new Room(); ChairSwingTowerMid = new Room(); 
 		ChairSwingTowerNearTop = new Room(); ChairSwingTowerOnTop = new Room();
-		TauntedHoRse = new Room();
-		MechanicalBull = new Room();
+		TauntedHoRse = new Room();MechanicalBull = new Room();PicnicArea = new Room();
+		CableCar = new Room();
 	}
 	
 	public void initializeRooms() {
@@ -212,7 +212,7 @@ PicnicArea, CableCar, null,
 				a="Mel grabs a tree branch and walks out onto the train tracks, balancing on one of the rails like a tight-rope walker. "; 
 				b="After 10 feet, Mel loses her balance and falls off. She lets out a wail as she acts like she's falling from high in the air, and then crumbles to the ground.";
 				c="When you walk to her, she grabs your arm and pulls herself up. With a somber gaze, she says 'You saved my life. I am eternally indebted to you.";
-				d="You and Mel are standing on the tracks. There are crickets chirping in the tall grasses."
+				d="You and Mel are standing on the tracks. There are crickets chirping in the tall grasses.";
 			} 
 			else { 
 				a=""; 
