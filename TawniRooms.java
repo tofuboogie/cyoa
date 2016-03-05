@@ -31,19 +31,10 @@ public class TawniRooms extends Rooms implements Serializable {
 
 
 	public void initMemory(){
-
-		CottonCandyStand = new Room();
-		MiniatureTrainStation = new Room();
-		MiniatureTrainCars = new Room();
-		HiStriker = new Room();
-		AirRifleSidestall = new Room();
-		DeepFriedTwinkie = new Room();
-		Bathroom = new Room();
-		ChairSwing = new Room(); ChairSwingTower = new Room(); ChairSwingSeat = new Room();
-		ChairSwingUnderGrating = new Room(); ChairSwingTowerMid = new Room(); 
-		ChairSwingTowerNearTop = new Room(); ChairSwingTowerOnTop = new Room();
-		TauntedHoRse = new Room();MechanicalBull = new Room();PicnicArea = new Room();
-		CableCar = new Room();
+		for (int i=0;i<tz_rooms.length;i++){
+			tz_rooms[i] = new Room();
+		}
+		Rooms_bulk.changeFieldReferences_tz();
 	}
 	
 	public void initializeRooms() {

@@ -7,14 +7,10 @@ public class Items extends Rooms implements Serializable {
 	}
 
 	public void initMemory(){
-	
-		iYourself = new Item();
-		iLoveLocks = new Item(); iLoveLockKey = new Item(); iThingamabob = new Item();
-		iCrowbar = new Item(); iMaintShedFD = new Item(); iTissue = new Item();
-		iChairSwingGrating = new Item(); iChairSwingDoor = new Item(); iChairSwingLever = new Item();
-		iChairSwingDoorHandle = new Item(); iChairSwingTowerNearTopDoor = new Item();
-		iFlashlight = new Item(); iTshirt = new Item();
-	
+		for (int i=0;i<items.length;i++){
+			items[i] = new Item();
+		}
+		Rooms_bulk.changeFieldReferences_items();
 	}	
 
 	public void initializeItems() {	

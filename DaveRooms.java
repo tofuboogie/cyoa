@@ -9,18 +9,10 @@ public class DaveRooms extends Rooms implements Serializable {
 	}
 	
 	public void initMemory(){
-	
-		Begin = new Room();
-		Home = new Room(); Work = new Room(); Tracks = new Room(); Fence = new Room();
-		TieShoes = new Room(); FenceLock = new Room(); FenceHole = new Room();
-		Tracks2 = new Room(); ShoesNoise = new Room(); FreakOut = new Room();
-		Melissa = new Room(); TakeLoveLock = new Room(); AskMelissa = new Room();
-		MaintenanceShed = new Room(); MaintenanceRearDoor = new Room(); 
-		MaintenanceRearWindow = new Room();
-		MaintenanceShedFront = new Room(); MaintShedFrontDoor = new Room(); 
-		MaintShedInside = new Room(); 
-		//TakeCrowbar = new Room();
-		
+		for (int i=0;i<dt_rooms.length;i++){
+			dt_rooms[i] = new Room();
+		}
+		Rooms_bulk.changeFieldReferences_dt();
 	}
 	
 	public void initializeRooms() {

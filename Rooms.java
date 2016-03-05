@@ -46,123 +46,19 @@ public class Rooms implements Serializable {
 	//persons
 	protected static Person pMelissa;
 	
-	//bulk operations
-	private Room[] tz_rooms = {CottonCandyStand, 
-MiniatureTrainStation, MiniatureTrainCars, ChairSwing, ChairSwingTower, ChairSwingSeat,
-ChairSwingUnderGrating, ChairSwingTowerMid, ChairSwingTowerNearTop, ChairSwingTowerOnTop, HiStriker,
-AirRifleSidestall, Bathroom, DeepFriedTwinkie, Outbuilding,TauntedHoRse, MechanicalBull, CableCar, PicnicArea
-	};
-
-	private Room[] dt_rooms = { Begin, 
-FenceHole, Home, Work, Tracks, Fence, 
-TieShoes, FenceLock, Tracks2, ShoesNoise, FreakOut, 
-Melissa, TakeLoveLock, AskMelissa, MaintenanceShed, MaintenanceRearDoor, 
-MaintenanceRearWindow, MaintenanceShedFront, MaintShedFrontDoor, MaintShedInside, TakeCrowbar, 
-Gazebo, BurlesqueParlor, FerrisWheel, FunnelcakeStand, PublicSquare, 
-ArcherySidestall,BasketballSidestall, HotDogCart, MerryGoRound, PortaJon, 
-BumperCars, TicketBooth
-	};
-
-	private Item[] items = { iYourself, 
-iTshirt, iLoveLocks, iLoveLockKey, iThingamabob,iCrowbar, 
-iMaintShedFD, iTissue, iChairSwingGrating, iChairSwingDoor, iChairSwingDoorHandle, 
-iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight
-	};
-	
-	public void changeFieldReferences(){ // bc Java has no iYourself**
-		//tz_rooms
-		CottonCandyStand = tz_rooms[0];
-		
-		MiniatureTrainStation = tz_rooms[1];
-		MiniatureTrainCars = tz_rooms[2];
-		ChairSwing = tz_rooms[3];
-		ChairSwingTower = tz_rooms[4];
-		ChairSwingSeat = tz_rooms[5];
-
-		ChairSwingUnderGrating = tz_rooms[6];
-		ChairSwingTowerMid = tz_rooms[7];
-		ChairSwingTowerNearTop = tz_rooms[8];
-		ChairSwingTowerOnTop = tz_rooms[9];
-		HiStriker = tz_rooms[10];
-
-		AirRifleSidestall = tz_rooms[11];
-		Bathroom = tz_rooms[12];
-		DeepFriedTwinkie = tz_rooms[13];
-		Outbuilding = tz_rooms[14];
-		TauntedHoRse = tz_rooms[15];
-		
-		MechanicalBull = tz_rooms[16];
-		CableCar = tz_rooms[17];
-		PicnicArea = tz_rooms[18];
-		
-		//dt_rooms
-		Begin = dt_rooms[0];
-
-		FenceHole = dt_rooms[1];
-		Home = dt_rooms[2];
-		Work = dt_rooms[3];
-		Tracks = dt_rooms[4];
-		Fence = dt_rooms[5];
-
-		TieShoes = dt_rooms[6];
-		FenceLock = dt_rooms[7];
-		Tracks2 = dt_rooms[8];
-		ShoesNoise = dt_rooms[9];
-		FreakOut = dt_rooms[10];
-
-		Melissa = dt_rooms[11];
-		TakeLoveLock = dt_rooms[12];
-		AskMelissa = dt_rooms[13];
-		MaintenanceShed = dt_rooms[14];
-		MaintenanceRearDoor = dt_rooms[15];
-
-		MaintenanceRearWindow = dt_rooms[16];
-		MaintenanceShedFront = dt_rooms[17];
-		MaintShedFrontDoor = dt_rooms[18];
-		MaintShedInside = dt_rooms[19];
-		TakeCrowbar = dt_rooms[20];
-
-		Gazebo = dt_rooms[21];
-		BurlesqueParlor = dt_rooms[22];
-		FerrisWheel = dt_rooms[23];
-		FunnelcakeStand = dt_rooms[24];
-		PublicSquare = dt_rooms[25];
-
-		ArcherySidestall = dt_rooms[26];
-		BasketballSidestall = dt_rooms[27];
-		HotDogCart = dt_rooms[28];
-		MerryGoRound = dt_rooms[29];
-		PortaJon = dt_rooms[30];
-
-		BumperCars = dt_rooms[31];
-		TicketBooth = dt_rooms[32];
-
-		//items
-		iYourself = items[0];
-		
-		iTshirt = items[1]; 
-		iLoveLocks = items[2]; 
-		iLoveLockKey = items[3]; 
-		iThingamabob = items[4];
-		iCrowbar = items[5]; 
-		
-		iMaintShedFD = items[6]; 
-		iTissue = items[7]; 
-		iChairSwingGrating = items[8]; 
-		iChairSwingDoor = items[9]; 
-		iChairSwingDoorHandle = items[10];
-		
-		iChairSwingLever = items[11];
-		iChairSwingTowerNearTopDoor = items[12];
-		iFlashlight = items[13];
-	}
-	//end bulk operations
+	//arrays for bulk operations
+	public static Room[] tz_rooms;
+	public static Room[] dt_rooms;
+	public static Item[] items;
 	
 	// constructor
 	public Rooms(){
 	}
 	
 	public void init(){
+	
+		Rooms_bulk.initBulkArrays();
+	
 		Items i = new Items();
 		Persons p = new Persons();
 		You = new Player();
@@ -203,166 +99,53 @@ iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight
 		out.writeObject(_stkPrevious);
 		out.writeObject(currentRoom);
 		out.writeObject(priorRoom);
-		//write Rooms
-		out.writeObject(CottonCandyStand);
-		out.writeObject(MiniatureTrainStation);
-		out.writeObject(MiniatureTrainCars);
-		out.writeObject(ChairSwing);
-		out.writeObject(ChairSwingTower);
-		out.writeObject(ChairSwingSeat);
-		out.writeObject(ChairSwingUnderGrating);
-		out.writeObject(ChairSwingTowerMid);
-		out.writeObject(ChairSwingTowerNearTop);
-		out.writeObject(ChairSwingTowerOnTop);
-		out.writeObject(HiStriker);
-		out.writeObject(AirRifleSidestall);
-		out.writeObject(Bathroom);
-		out.writeObject(DeepFriedTwinkie);
-		out.writeObject(Outbuilding);
-		out.writeObject(Begin);
-		out.writeObject(FenceHole);
-		out.writeObject(Home);
-		out.writeObject(Work);
-		out.writeObject(Tracks);
-		out.writeObject(Fence);
-		out.writeObject(TieShoes);
-		out.writeObject(FenceLock);
-		out.writeObject(Tracks2);
-		out.writeObject(ShoesNoise);
-		out.writeObject(FreakOut);
-		out.writeObject(Melissa);
-		out.writeObject(TakeLoveLock);
-		out.writeObject(AskMelissa);
-		out.writeObject(MaintenanceShed);
-		out.writeObject(MaintenanceRearDoor);
-		out.writeObject(MaintenanceRearWindow);
-		out.writeObject(MaintenanceShedFront);
-		out.writeObject(MaintShedFrontDoor);
-		out.writeObject(MaintShedInside);
-		out.writeObject(TakeCrowbar);
-		out.writeObject(Gazebo);
-		out.writeObject(BurlesqueParlor);
-		out.writeObject(FerrisWheel);
-		out.writeObject(FunnelcakeStand);
-		out.writeObject(PublicSquare);
-		out.writeObject(ArcherySidestall);
-		out.writeObject(BasketballSidestall);
-		out.writeObject(HotDogCart);
-		out.writeObject(MerryGoRound);
-		out.writeObject(PortaJon);
-		out.writeObject(BumperCars);
-		out.writeObject(TicketBooth);
-		//write Items
-		/*
+		
+		//write out Rooms
+		for (int i=0;i<tz_rooms.length;i++){
+			out.writeObject(tz_rooms[i]);
+		}
+		for (int i=0;i<dt_rooms.length;i++){
+			out.writeObject(dt_rooms[i]);
+		}
+		
+		//write out Items
 		for (int i=0;i<items.length;i++){
 			out.writeObject(items[i]);
+			//MyLogger.log("writing out "+items[i]._name);
 		}
-		*/
-		out.writeObject(iYourself);
-		out.writeObject(iTshirt);
-		out.writeObject(iLoveLocks);
-		out.writeObject(iLoveLockKey);
-		out.writeObject(iThingamabob);
-		out.writeObject(iCrowbar);
-		out.writeObject(iMaintShedFD);
-		out.writeObject(iTissue);
-		out.writeObject(iChairSwingGrating);
-		out.writeObject(iChairSwingDoor);
-		out.writeObject(iChairSwingDoorHandle);
-		out.writeObject(iChairSwingLever);
-		out.writeObject(iChairSwingTowerNearTopDoor);
-		out.writeObject(iFlashlight);
 		
 		//write Persons
 		out.writeObject(pMelissa);
 	}
 	
-	@SuppressWarnings("unchecked") //otherwise, compiler complains about (Stack<Room>)in.readObject()
+		@SuppressWarnings("unchecked") //otherwise, compiler complains about (Stack<Room>)in.readObject()
 	private void readObject(ObjectInputStream in) throws IOException,ClassNotFoundException{
-	//NOTE: This must read objects back in in _exactly_ the same order as they were writ out
-		//read non-static fields
-		in.defaultReadObject();
+		//NOTE: This must read objects back in in _exactly_ the same order as they were writ out
 		
+		in.defaultReadObject();
 		You = (Player)in.readObject();
 		_stkPrevious = (Stack<Room>)in.readObject();
 		currentRoom = (Room)in.readObject();
 		priorRoom = (Room)in.readObject();
-		//read Rooms
-		CottonCandyStand = (Room)in.readObject();
-		MiniatureTrainStation = (Room)in.readObject();
-		MiniatureTrainCars = (Room)in.readObject();
-		ChairSwing = (Room)in.readObject();
-		ChairSwingTower = (Room)in.readObject();
-		ChairSwingSeat = (Room)in.readObject();
-		ChairSwingUnderGrating = (Room)in.readObject();
-		ChairSwingTowerMid = (Room)in.readObject();
-		ChairSwingTowerNearTop = (Room)in.readObject();
-		ChairSwingTowerOnTop = (Room)in.readObject();
-		HiStriker = (Room)in.readObject();
-		AirRifleSidestall = (Room)in.readObject();
-		Bathroom = (Room)in.readObject();
-		DeepFriedTwinkie = (Room)in.readObject();
-		Outbuilding = (Room)in.readObject();
-		Begin = (Room)in.readObject();
-		FenceHole = (Room)in.readObject();
-		Home = (Room)in.readObject();
-		Work = (Room)in.readObject();
-		Tracks = (Room)in.readObject();
-		Fence = (Room)in.readObject();
-		TieShoes = (Room)in.readObject();
-		FenceLock = (Room)in.readObject();
-		Tracks2 = (Room)in.readObject();
-		ShoesNoise = (Room)in.readObject();
-		FreakOut = (Room)in.readObject();
-		Melissa = (Room)in.readObject();
-		TakeLoveLock = (Room)in.readObject();
-		AskMelissa = (Room)in.readObject();
-		MaintenanceShed = (Room)in.readObject();
-		MaintenanceRearDoor = (Room)in.readObject();
-		MaintenanceRearWindow = (Room)in.readObject();
-		MaintenanceShedFront = (Room)in.readObject();
-		MaintShedFrontDoor = (Room)in.readObject();
-		MaintShedInside = (Room)in.readObject();
-		TakeCrowbar = (Room)in.readObject();
-		Gazebo = (Room)in.readObject();
-		BurlesqueParlor = (Room)in.readObject();
-		FerrisWheel = (Room)in.readObject();
-		FunnelcakeStand = (Room)in.readObject();
-		PublicSquare = (Room)in.readObject();
-		ArcherySidestall = (Room)in.readObject();
-		BasketballSidestall = (Room)in.readObject();
-		HotDogCart = (Room)in.readObject();
-		MerryGoRound = (Room)in.readObject();
-		PortaJon = (Room)in.readObject();
-		BumperCars = (Room)in.readObject();
-		TicketBooth = (Room)in.readObject();
-		//read Items
+		
+		//read in Rooms
+		for (int i=0;i<tz_rooms.length;i++){
+			tz_rooms[i] = (Room)in.readObject();
+		}
+		for (int i=0;i<dt_rooms.length;i++){
+			dt_rooms[i] = (Room)in.readObject();
+		}
+		
+		//read in Items
 		for (int i = 0;i<items.length;i++){
 			items[i] = (Item)in.readObject();
 		}
-		changeFieldReferences();
-		/*
-			iYourself = (Item)in.readObject();
-			iTshirt = (Item)in.readObject();
-			iLoveLocks = (Item)in.readObject();
-			iLoveLockKey = (Item)in.readObject();
-			iThingamabob = (Item)in.readObject();
-			iCrowbar = (Item)in.readObject();
-			iMaintShedFD = (Item)in.readObject();
-			iTissue = (Item)in.readObject();
-			iChairSwingGrating = (Item)in.readObject();
-			iChairSwingDoor = (Item)in.readObject();
-			iChairSwingDoorHandle = (Item)in.readObject();
-			iChairSwingLever = (Item)in.readObject();
-			iChairSwingTowerNearTopDoor = (Item)in.readObject();
-			iFlashlight = (Item)in.readObject();
-		*/
-		
-		//read Persons
+
+		//read in Persons
 		pMelissa = (Person)in.readObject();
 		
-			
-		
+		//reset Rooms fields to match fields in tz_rooms, dt_rooms, and items arrays
+		Rooms_bulk.changeFieldReferences();
 	}
 	
 	public void removePreviousRooms(int howMany){
