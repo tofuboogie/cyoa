@@ -16,7 +16,6 @@ public class TawniRooms extends Rooms implements Serializable {
 	5 Water Rifle game
 	6 Balloon and Darts board
 	7 Deep-fried Twinkie stand
-	*7.5 Bathroom
 	8 H(T)aunted Hou(R)se
 	9 Circus Tent
 	10 Tilt-A-Whirl
@@ -38,6 +37,106 @@ public class TawniRooms extends Rooms implements Serializable {
 	}
 	
 	public void initializeRooms() {
+
+	// Room: CircusTent --------------------------------------------------------------------------------
+	CircusTent.setDescription(
+	"Circus Tent",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+
+	CircusTent.setOtherRooms(
+	FerrisWheel, TiltAWhirl, PublicSquare,
+	"Ferris Wheel","",
+	"Tilt-A-Whirl","",
+	"Public Square",""
+	);
+	
+	// Room: TiltAWhirl ---------------------------------------------------------------------------------
+	TiltAWhirl.setDescription(
+	"Tilt-A-Whirl",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+
+	TiltAWhirl.setOtherRooms(
+	CircusTent, TauntedHoRse, PicnicArea,
+	"Circus Tent","",
+	"Taunted HoRse","",
+	"Picnic Area",""
+	);
 
 	// Room: Outbuilding ---------------------------------------------------------------------------------
 	Outbuilding.setDescription(
@@ -81,6 +180,13 @@ public class TawniRooms extends Rooms implements Serializable {
 			return strTemp;
 		}
 	});
+	
+	Outbuilding.setOtherRooms(
+	MaintenanceShed, PicnicArea, null,
+	"Maintenance Shed","",
+	"Picnic Area","",
+	"",""
+	);
 
 	// Room: CableCar --------------------------------------------------------------------------------
 	CableCar.setDescription(
@@ -405,10 +511,10 @@ public class TawniRooms extends Rooms implements Serializable {
 
 	CottonCandyStand.setOtherRooms(
 	null,
-	MiniatureTrainStation, ChairSwing, HiStriker,
+	MiniatureTrainStation, ChairSwing, TicketBooth,
 	"Miniature Train","Go to the miniature train to follow the tracks. We all know how you like to follow tracks.",
 	"Chair Swing","Go to the chair swing to see if you can get a higher vantage point.",
-	"Hi-Striker","Go to the Hi-Striker to test your strength."
+	"Ticket Booth","Go to the ticket booth."
 	);
 
 
@@ -581,9 +687,9 @@ public class TawniRooms extends Rooms implements Serializable {
 
 	//Note: leave the second door null, because it becomes the service tunnel when the grating is removed
 	ChairSwing.setOtherRooms(
-	ChairSwingSeat, null, TauntedHoRse,	
+	ChairSwingSeat, PublicSquare, TauntedHoRse,	
 	"Chair Swing Seat","Go and sit in a chair swing. It might be really fun.",
-	"","",
+	"Public Square","Stroll across the square",
 	"Taunted HoRse","You see what looks like a scary haunted house in the distance."
 	);
 	

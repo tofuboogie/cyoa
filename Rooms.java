@@ -18,6 +18,7 @@ public class Rooms implements Serializable {
 	protected static Room HiStriker, WaterGunGame;
 	protected static Room DeepFriedTwinkie, Outbuilding;
 	protected static Room TauntedHoRse, MechanicalBull, CableCar, PicnicArea;
+	protected static Room CircusTent, TiltAWhirl;
 	
 	//DT's rooms
 	public static Room Begin;
@@ -29,7 +30,6 @@ public class Rooms implements Serializable {
 	protected static Room MaintenanceShed, MaintenanceRearDoor, MaintenanceRearWindow;
 	protected static Room MaintenanceShedFront, MaintShedFrontDoor, MaintShedInside;
 	protected static Room TakeCrowbar;
-	//DT unwrit
 	protected static Room Gazebo, BurlesqueParlor;
 	protected static Room FerrisWheel, FunnelcakeStand, PublicSquare;
 	protected static Room ArcherySidestall,BasketballSidestall, HotDogCart;

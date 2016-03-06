@@ -7,7 +7,7 @@ class Rooms_bulk extends Rooms {
 	MiniatureTrainStation, MiniatureTrainCars, ChairSwing, ChairSwingTower, ChairSwingSeat,
 	ChairSwingUnderGrating, ChairSwingTowerMid, ChairSwingTowerNearTop, ChairSwingTowerOnTop, HiStriker,
 	WaterGunGame, DeepFriedTwinkie, Outbuilding,TauntedHoRse, MechanicalBull, 
-	CableCar, PicnicArea
+	CableCar, PicnicArea, CircusTent, TiltAWhirl
 		};
 
 		dt_rooms = new Room[] { Begin, 
@@ -56,6 +56,8 @@ class Rooms_bulk extends Rooms {
 		
 		CableCar = tz_rooms[16];
 		PicnicArea = tz_rooms[17];
+		CircusTent = tz_rooms[18];
+		TiltAWhirl = tz_rooms[19];
 	}
 		
 	public static void changeFieldReferences_dt() {
