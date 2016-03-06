@@ -38,6 +38,221 @@ public class TawniRooms extends Rooms implements Serializable {
 	}
 	
 	public void initializeRooms() {
+
+	// Room: Outbuilding ---------------------------------------------------------------------------------
+	Outbuilding.setDescription(
+	"Outbuilding",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+
+	// Room: CableCar --------------------------------------------------------------------------------
+	CableCar.setDescription(
+	"Cable Cars",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+	
+	// Room: PicnicArea ----------------------------------------------------------------------------------
+	PicnicArea.setDescription(
+	"Picnic Area",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+	
+	// Room: WaterGunGame --------------------------------------------------------------------------------
+	WaterGunGame.setDescription(
+	"Water Gun Game",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+	
+	// Room: HiStriker --------------------------------------------------------------------------------
+	HiStriker.setDescription(
+	"High Striker",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"ROOMDESC1"
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
 	
 	// Room: MechanicalBull ----------------------------------------------------------------------------
 	MechanicalBull.setDescription(
@@ -89,16 +304,16 @@ public class TawniRooms extends Rooms implements Serializable {
 
 
 
-MechanicalBull.setOtherRooms(
-PicnicArea, CableCar, null,
-"Picnic Tables","Go sit down.",
-"Cable Cars","Go explore the cable cars.",
-"",""
-);
+	MechanicalBull.setOtherRooms(
+	PicnicArea, CableCar, null,
+	"Picnic Tables","Go sit down.",
+	"Cable Cars","Go explore the cable cars.",
+	"",""
+	);
 
 						
 	
-	// Room: TauntedHoRse ----------------------------------------------------------------------------------------
+	// Room: TauntedHoRse -------------------------------------------------------------------
 	TauntedHoRse.setDescription(
 	"Haunted House",
 	new Room.Description() {
@@ -140,6 +355,12 @@ PicnicArea, CableCar, null,
 			return strTemp;
 		}
 	});
+	
+	TauntedHoRse.setOtherRooms(
+	MechanicalBull, null, null,
+	"Mechanical Bull","Check out the mechanical bull and test your saddle strength.",
+	"","","",""
+	);
 	
 	// Room: CottonCandyStand ---------------------------------------------------------------------------
 	CottonCandyStand.setDescription(
@@ -261,8 +482,6 @@ PicnicArea, CableCar, null,
 	"Hi-striker","Go to the hi-striker to test your strength."
 	);
 
-	//WaterGunGame, "Water Gun Game","Go see if you can find a squirt gun. Just in case."
-
 	// Room: MiniatureTrainCars ---------------------------------------------------------------------------
 	MiniatureTrainCars.setDescription(
 	"Miniature Train Cars",
@@ -305,7 +524,7 @@ PicnicArea, CableCar, null,
 
 	MiniatureTrainCars.setOtherRooms(
 	null,
-	ChairSwing, HiStriker, AirRifleSidestall,
+	ChairSwing, HiStriker, WaterGunGame,
 	"Chair Swing","Go to the chair swing to see if you can get a higher vantage point.",
 	"Hi-striker","Go to the hi-striker to test your strength.",
 	"Water Gun Game","Go see if you can find a squirt gun. Just in case."
@@ -360,12 +579,12 @@ PicnicArea, CableCar, null,
 		}
 	});
 
+	//Note: leave the second door null, because it becomes the service tunnel when the grating is removed
 	ChairSwing.setOtherRooms(
-	null,
-	ChairSwingSeat, null, null,	
+	ChairSwingSeat, null, TauntedHoRse,	
 	"Chair Swing Seat","Go and sit in a chair swing. It might be really fun.",
 	"","",
-	"",""
+	"Taunted HoRse","You see what looks like a scary haunted house in the distance."
 	);
 	
 	ChairSwing.setStuff(
@@ -681,7 +900,6 @@ PicnicArea, CableCar, null,
 	});
 
 	ChairSwingSeat.setOtherRooms(
-	null,
 	null, null, null,
 	"","","","","",""
 	);
@@ -727,62 +945,12 @@ PicnicArea, CableCar, null,
 	});
 
 	DeepFriedTwinkie.setOtherRooms(
-	FenceHole,
-	Bathroom, null, null,
-	"Bathroom","Go to the bathroom to vomit.",
+	null, null, null,
+	"","",
 	"","",
 	"",""
 	);
 
-	// Room: Bathroom ----------------------------------------------------------------------------------------
-	Bathroom.setDescription(
-	"Bathroom",
-	new Room.Description() {
-		public String[] make(int numberOfVisits) {
-			String strTemp[];
-			String a,b,c,d;
-		
-			// if (You.areWith(PERSON)) { ACTION } else { ACTION }
-			// if (You.have(ITEM)) { ACTION } else { ACTION }
-			// if (ROOM.hasItem(ITEM) { ACTION } else { ACTION }
-			// if (ROOM.hasPerson(PERSON) { ACTION } else { ACTION }
-		
-			switch (numberOfVisits){
-				case 1:
-					strTemp = new String[] {
-						"A nice place to poop."
-					};
-				break;
-				case 2:
-					strTemp = new String[] {
-						"ROOM_DESC2"
-					};
-				break;
-				case 3:
-					strTemp = new String[] {
-						"ROOM_DESC3"
-					};
-				break;
-				default:
-					strTemp = new String[] {
-						"ROOM_DESC_MORE"
-					};
-				break;
-			}
-		
-			return strTemp;
-		}
-	});
-
-	Bathroom.setOtherRooms(
-	DeepFriedTwinkie,
-	null, null, null,
-	"","","","","",""
-	);
-
-
-
-	
 	// End room definitions
 	}
 	

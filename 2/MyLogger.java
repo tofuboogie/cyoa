@@ -8,13 +8,13 @@ import java.io.*;
 
 public final class MyLogger {
 
-	private static Logger logger = Logger.getLogger("DTlogs");
+	private static Logger logger = Logger.getLogger("Cyoa");
 	private static FileHandler fh;
 	
 	public static void log(String str){
 	
 		try{
-			fh = new FileHandler("/home/dave/pgm/cyoaLog/log",true);
+			fh = new FileHandler("tmp/log",true);
 			logger.addHandler(fh);
 			logger.setLevel(Level.ALL);
 			SimpleFormatter sf = new SimpleFormatter();
@@ -29,6 +29,13 @@ public final class MyLogger {
 	
 		logger.log(Level.ALL,str + "\n");
 	}
+	
+	/*
+	String str = "";
+	for (StackTraceElement ste : Thread.currentThread().getStackTrace()){
+		str += ste.getClassName() + ":" + ste.getMethodName() + ":" + ste.getLineNumber() + "\n";
+	}	
+	*/
 }
 		
 

@@ -37,7 +37,7 @@ public final class Globals implements Serializable{
 	
 	public static void save(String filename, Rooms rooms){
 		try {
-			File file = new File("savedGames/" + filename);
+			File file = new File("tmp/" + filename);
 			boolean fileCreated = file.createNewFile();
 			FileOutputStream fs = new FileOutputStream(file);
 			ObjectOutputStream os = new ObjectOutputStream(fs);
@@ -56,7 +56,7 @@ public final class Globals implements Serializable{
 	
 	public static Rooms restore(String filename){
 		try {
-			File file = new File("savedGames/" + filename);
+			File file = new File("tmp/" + filename);
 			FileInputStream fs = new FileInputStream(file);
 			ObjectInputStream os = new ObjectInputStream(fs);
 		

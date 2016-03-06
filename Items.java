@@ -14,9 +14,7 @@ public class Items extends Rooms implements Serializable {
 	}	
 
 	public void initializeItems() {	
-		
 		initializeItemsActions();
-		
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
 					String requirementMetText, boolean quiet, boolean open, boolean isDoor); 
@@ -42,7 +40,7 @@ public class Items extends Rooms implements Serializable {
 					"is",null,"",false, false, true);
 		iChairSwingDoorHandle.set("hatch wheel","A steel wheel in the center of the hatch door. It has four thick spokes, and is a mixture of flaking olive paint and ruddy rust",
 					"is",null,"",false, false, false);	
-		iChairSwingGrating.set("grating","A heavy stainless steel grating, whose cross-supports make a grid of a few hundred rectangles, each about two finger-widths wide.",
+		iChairSwingGrating.set("grating","A heavy galvanized steel grating, whose cross-supports make a grid of a few hundred rectangles, each about two finger-widths wide.",
 					"is",null,"",false,false,true);	
 		iChairSwingTowerNearTopDoor.set("roof hatch","A thin square metal door on the ceiling. It has a lever on the right side, which rattles when the wind blows outside."); 
 		iChairSwingTowerNearTopDoor.makeIntoAdoor(iYourself,ChairSwingTowerNearTop, 		ChairSwingTowerOnTop, "Up","Go to the roof"); 
@@ -59,10 +57,6 @@ public class Items extends Rooms implements Serializable {
 					
 		
 	public void initializeItemsActions() {	
-	
-	
-	
-	MyLogger.log("iYourself.toString() = " +iYourself.toString());
 		/*	
 		<Item object>.addAction(
 			Object itemTarget, 
@@ -88,7 +82,7 @@ public class Items extends Rooms implements Serializable {
 		// BEGIN iYourself ------------------------------------------------------------------------------
 		iYourself.addAction(
 			iChairSwingGrating, 
-			new String[] { "You pull on the grating and it budges. You pull harder and get it to rise up on one side, and you slide it a little to the right before releasing it and stumbling forward a little. \"Whew,\", you say, as you stand up straight to catch your breath.", "You pull on the grating again and this time you slide it all the way over onto the adjoining grass, exposing a service hole." }, 
+			new String[] { "You pull on the grating and it budges. You pull harder and get it to rise up on one side, and you slide it a little to the right before releasing it and stumbling forward a little. \"Whew,\", you say, as you stand up straight to catch your breath.", "You pull on the grating again and this time you slide it all the way over onto the adjoining grass, exposing a service hole.","" }, 
 			new Item.Callback(){
 				public String update(int numberOfTries){
 					String str = "";
@@ -207,49 +201,7 @@ public class Items extends Rooms implements Serializable {
 
 
 	// End item definitions
-	}
-	
-	/*
-	public void initializeItems2() {
-
-		String str = "";
-		for (StackTraceElement ste : Thread.currentThread().getStackTrace()){
-			str += ste.getClassName() + ":" + ste.getMethodName() + ":" + ste.getLineNumber() + "\n";
-		}	
-
-	
-			iYourself.set("yourself2",
-			"You, in init items 2.", 
-			"is", null, "",false,false,false);
-			
-		logger.log(Level.ALL,"iYourself.toString()= " + iYourself.toString());
-		logger.log(Level.ALL,"iYourself._name= " + iYourself._name);
-		logger.log(Level.ALL,"You.get(1)._name= " + You.get(1)._name);
-		logger.log(Level.ALL,"You.get(1).toString()= " + You.get(1).toString() + "\n");
-
-			iYourself.addAction(
-			iChairSwingGrating, 
-			new String[] { "You pull on the grating and it budges. You pull harder and get it to rise up on one side, and you slide it a little to the right before releasing it and stumbling forward a little. \"Whew,\", you say, as you stand up straight to catch your breath.", "You pull on the grating again and this time you slide it all the way over onto the adjoining grass, exposing a service hole." }, 
-			new Item.Callback(){
-				public String update(int numberOfTries){
-					String str = "";
-					switch(numberOfTries){
-						case 1: // do nothing
-						break;
-						case 2: 
-							ChairSwing.setNext2(ChairSwingUnderGrating, "Service Tunnel", "Enter the hole.");
-						break;
-						default: 
-							str += "You've already moved the grating. Moving it again would only risk throwing out your back.";
-						break;
-					}
-					return str;
-				}
-			}
-		);
-	
-	}
-	*/	
+	}	
 		
 // End Items class
 }

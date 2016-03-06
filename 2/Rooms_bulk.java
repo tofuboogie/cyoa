@@ -6,7 +6,8 @@ class Rooms_bulk extends Rooms {
 		tz_rooms = new Room[] {CottonCandyStand, 
 	MiniatureTrainStation, MiniatureTrainCars, ChairSwing, ChairSwingTower, ChairSwingSeat,
 	ChairSwingUnderGrating, ChairSwingTowerMid, ChairSwingTowerNearTop, ChairSwingTowerOnTop, HiStriker,
-	AirRifleSidestall, Bathroom, DeepFriedTwinkie, Outbuilding,TauntedHoRse, MechanicalBull, CableCar, PicnicArea
+	WaterGunGame, DeepFriedTwinkie, Outbuilding,TauntedHoRse, MechanicalBull, 
+	CableCar, PicnicArea
 		};
 
 		dt_rooms = new Room[] { Begin, 
@@ -47,15 +48,14 @@ class Rooms_bulk extends Rooms {
 		ChairSwingTowerOnTop = tz_rooms[9];
 		HiStriker = tz_rooms[10];
 
-		AirRifleSidestall = tz_rooms[11];
-		Bathroom = tz_rooms[12];
-		DeepFriedTwinkie = tz_rooms[13];
-		Outbuilding = tz_rooms[14];
-		TauntedHoRse = tz_rooms[15];
+		WaterGunGame = tz_rooms[11];
+		DeepFriedTwinkie = tz_rooms[12];
+		Outbuilding = tz_rooms[13];
+		TauntedHoRse = tz_rooms[14];
+		MechanicalBull = tz_rooms[15];
 		
-		MechanicalBull = tz_rooms[16];
-		CableCar = tz_rooms[17];
-		PicnicArea = tz_rooms[18];
+		CableCar = tz_rooms[16];
+		PicnicArea = tz_rooms[17];
 	}
 		
 	public static void changeFieldReferences_dt() {

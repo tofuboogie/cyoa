@@ -15,10 +15,10 @@ public class Rooms implements Serializable {
 	protected static Room CottonCandyStand, MiniatureTrainStation, MiniatureTrainCars, ChairSwing;
 	protected static Room ChairSwingTower, ChairSwingSeat, ChairSwingUnderGrating, ChairSwingTowerMid;
 	protected static Room ChairSwingTowerNearTop, ChairSwingTowerOnTop;
-	protected static Room HiStriker, AirRifleSidestall;
-	protected static Room Bathroom, DeepFriedTwinkie, Outbuilding;
+	protected static Room HiStriker, WaterGunGame;
+	protected static Room DeepFriedTwinkie, Outbuilding;
 	protected static Room TauntedHoRse, MechanicalBull, CableCar, PicnicArea;
-
+	
 	//DT's rooms
 	public static Room Begin;
 	protected static Room FenceHole;
