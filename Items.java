@@ -17,7 +17,7 @@ public class Items extends Rooms implements Serializable {
 		initializeItemsActions();
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
-					String requirementMetText, boolean quiet, boolean open, boolean isDoor); 
+				String requirementMetText, boolean quiet, boolean open, boolean isDoor, boolean takeable); 
 		*/
 
 		iYourself.set("yourself",
@@ -49,10 +49,17 @@ public class Items extends Rooms implements Serializable {
 			"An old metal flashlight with fluted indentions running its length. It's weight feels good in your hand.", "is", null,"",false,false,false);
 		iTshirt.set("a corny t-shirt","The t-shirt is black with an airbrushed image of Yanni's face, which covers your entire chest. He is staring blissfully into the distance, as his hair blows in the wind.", "is",null,"",false,false,false); 
 
-					
+		iBurlesqueSofa.set("sofa",
+			"The sofa appears of Victorian vintage, hand-tufted red velvet with a dark mahogany frame and legs. The armrests are carved in such a way that the ends appear to roll into themselves. Behind the back-cushions, the wooden frame rises in the middle into a little arch, carved into what looks like a setting sun, flattening out at the edges.","is",true,false);
+		iBurlesqueSwitch.set("switch","A simple switch with two black circular buttons. Push the top one, and bottom on pops out. Push the bottom one... you get the picture.",true,false);
+		iBurlesquePiano.set("little piano","A vintage Schoenhut toy piano. It is a tiny upright, with only 22 keys, and has some simple vine and leaf stenciling on the upper panel.",true,false);
+		iBurlesquePainting.set("painting","The painting is that of a semi-nude woman, dressed only in a diaphanous peignoir. She is leaning back against a large stone, set on a pitch black background, with her wrist limply pressed against her forehead.",true,false);
+		iBurlesqueManikin.set("dress form","An old dress form, which looks like a headless and limbless mannequin skewered on a steel pole that rolls on a cast base with four little caster wheels. Someone painted a little red dot on one breast, and a green dot on the other. \"Christmas nipples,\" you mutter to yourself, with an ineluctable grin.",true,false);
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
-					String requirementMetText, boolean quiet, boolean open, boolean isDoor); */
+				String requirementMetText, boolean quiet, boolean open, boolean isDoor, boolean takeable);
+		<Item object>.set(String name, String description, String is_are, boolean quiet, boolean takeable) 			
+		*/
 	}
 					
 		

@@ -290,8 +290,8 @@ public class Main {
 				System.out.println("This doesn't appear to be in the room.");
 				return 1;
 			}
-			else if (item._isDoor == true) {
-				System.out.println("Try as you might, you cannot take a door or other portal.");
+			else if (item._isDoor == true || item._takeable == false) {
+				System.out.println("Try as you might, you cannot take that.");
 				return 1;				
 			}
 			else {

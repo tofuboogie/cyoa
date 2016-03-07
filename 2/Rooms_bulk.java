@@ -17,13 +17,14 @@ class Rooms_bulk extends Rooms {
 	MaintenanceRearWindow, MaintenanceShedFront, MaintShedFrontDoor, MaintShedInside, TakeCrowbar, 
 	Gazebo, BurlesqueParlor, FerrisWheel, FunnelcakeStand, PublicSquare, 
 	ArcherySidestall,BasketballSidestall, HotDogCart, MerryGoRound, PortaJon, 
-	BumperCars, TicketBooth
+	BumperCars, TicketBooth, BurlesqueStage
 		};
 
 		items = new Item[] { iYourself, 
 	iTshirt, iLoveLocks, iLoveLockKey, iThingamabob,iCrowbar, 
 	iMaintShedFD, iTissue, iChairSwingGrating, iChairSwingDoor, iChairSwingDoorHandle, 
-	iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight
+	iChairSwingLever, iChairSwingTowerNearTopDoor, iFlashlight, iBurlesqueSofa, iBurlesqueSwitch,
+	iBurlesquePiano, iBurlesquePainting, iBurlesqueManikin
 		};
 	}
 	
@@ -101,6 +102,7 @@ class Rooms_bulk extends Rooms {
 
 		BumperCars = dt_rooms[31];
 		TicketBooth = dt_rooms[32];
+		BurlesqueStage  = dt_rooms[33];
 	}
 	
 	public static void changeFieldReferences_items() {
@@ -121,6 +123,12 @@ class Rooms_bulk extends Rooms {
 		iChairSwingLever = items[11];
 		iChairSwingTowerNearTopDoor = items[12];
 		iFlashlight = items[13];
+		iBurlesqueSofa = items[14];
+		iBurlesqueSwitch = items[15];
+		
+		iBurlesquePiano = items[16];
+		iBurlesquePainting = items[17];
+		iBurlesqueManikin = items[18];
 	}
 
 

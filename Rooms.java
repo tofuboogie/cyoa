@@ -34,6 +34,7 @@ public class Rooms implements Serializable {
 	protected static Room FerrisWheel, FunnelcakeStand, PublicSquare;
 	protected static Room ArcherySidestall,BasketballSidestall, HotDogCart;
 	protected static Room MerryGoRound, PortaJon, BumperCars, TicketBooth;
+	protected static Room BurlesqueStage;
 	
 	//items
 	protected static Item iYourself;
@@ -41,7 +42,8 @@ public class Rooms implements Serializable {
 	protected static Item iLoveLocks, iLoveLockKey, iThingamabob;
 	protected static Item iCrowbar, iMaintShedFD, iTissue;
 	protected static Item iChairSwingGrating, iChairSwingDoor, iChairSwingDoorHandle, iChairSwingLever;
-	protected static Item iChairSwingTowerNearTopDoor, iFlashlight;
+	protected static Item iChairSwingTowerNearTopDoor, iFlashlight, iBurlesqueSofa, iBurlesqueSwitch;
+	protected static Item iBurlesquePiano, iBurlesquePainting, iBurlesqueManikin;
 	
 	//persons
 	protected static Person pMelissa;
@@ -279,12 +281,12 @@ public class Rooms implements Serializable {
 	// Example:
 	/*
 	ROOM.setStuff(
-	new ArrayList<Item>() {
-		{ add(iThingamabob);
-		}
-	},
-	null
-	);
+	new ArrayList<Item>() {{ 
+		add(iThingamabob);
+		add(iThingamabob2);
+		add(iThingamabob3);
+	}},
+	null);
 	*/
 
 	// ROOM.setAction(Callback callback);

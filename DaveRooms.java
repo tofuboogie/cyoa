@@ -313,24 +313,9 @@ new Room.Description() {
 		String a,b,c,d;
 		
 		switch (numberOfVisits){
-			case 1:
-				strTemp = new String[] {
-					"You freak the fuck out."
-				};
-			break;
-			case 2:
-				strTemp = new String[] {
-					"ROOM_DESC"
-				};
-			break;
-			case 3:
-				strTemp = new String[] {
-					"ROOM_DESC"
-				};
-			break;
 			default:
 				strTemp = new String[] {
-					"ROOM_DESC"
+					"You freak the fuck out."
 				};
 			break;
 		}
@@ -340,9 +325,7 @@ new Room.Description() {
 });
 
 FreakOut.setOtherRooms(
-Tracks,
 null, null, null,
-
 "","",
 "","",
 "",""
@@ -355,7 +338,21 @@ new Room.Description() {
 	public String[] make(int numberOfVisits) {
 		String strTemp[];
 		String a,b,c,d;
-		
+			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			 if (comingFrom(Tracks) || comingFrom(Tracks2)) { 
+			 	a="You walk facing down at the gravel between the tracks, and look up again to see that you are back at the hole in the fence. A little frog hops right through."; 
+			 	b="Your eyes watch the fence as you walk along it. If you dull your focus in just the right way, you can see little three-dimensional zig-zags in it. You are back at hole in it.";
+			 	c="You walk back down the tracks to the hole in the fence.";
+			 } else { 
+			 	a="You exit the park through the hole in the fence, and have returned to the tracks."; 
+			 	b="You exit the park again, and are back on the tracks."; 
+			 	c="You have made your egress yet again, and climb up the little gravel rise to the train tracks."; 
+			 }
 		switch (numberOfVisits){
 			case 1:
 				strTemp = new String[] {
@@ -365,17 +362,17 @@ new Room.Description() {
 			break;
 			case 2:
 				strTemp = new String[] {
-					"ROOM_DESC"
+					a
 				};
 			break;
 			case 3:
 				strTemp = new String[] {
-					"ROOM_DESC"
+					b
 				};
 			break;
 			default:
 				strTemp = new String[] {
-					"ROOM_DESC"
+					c
 				};
 			break;
 		}
@@ -480,7 +477,6 @@ new Room.Description() {
 });
 
 Melissa.setOtherRooms(
-Tracks,
 AskMelissa, null, null,
 "Ask",
 "Ask Melissa to join you",
@@ -502,52 +498,33 @@ AskMelissa.setDescription(
 new Room.Description() {
 	public String[] make(int numberOfVisits) {
 		String strTemp[];
-		String a,b,c,d;
 		
 		switch (numberOfVisits){
-			case 1:
+			default:
 				strTemp = new String[] {
 					"You ask Melissa to join you on your walk. She declines, muttering, with a little spritz of spray paint in the air as if it were air freshener, that she\'s not a walker. You ask her if instead she\'d like to join you on a quest, and she accepts."
 				};
 			break;
-			case 2:
-				strTemp = new String[] {
-					"ROOM_DESC"
-				};
-			break;
-			case 3:
-				strTemp = new String[] {
-					"ROOM_DESC"
-				};
-			break;
-			default:
-				strTemp = new String[] {
-					"ROOM_DESC"
-				};
-			break;
 		}
-		
 		return strTemp;
 	}
 });
 
 AskMelissa.setOtherRooms(
-Tracks,
-null, null, null,
-"","","","","",""
-);
+null, null, null,"","","","","","");
 
 AskMelissa.setAction(
 new Room.Callback() {  
 	public void update(int numberOfVisits) { 
-		You.updatePerson(pMelissa, 1);
-		Melissa.updatePerson(pMelissa,0);
-		removePreviousRooms(3);
-		Tracks.setNext2(null,"","");
-		You.updateItem(iTissue, 1);
+		if (!You.areWith(pMelissa)) {
+			You.updatePerson(pMelissa, 1);
+			Melissa.updatePerson(pMelissa,0);
+			removePreviousRooms(3);
+			Tracks.setNext2(null,"","");
+			You.updateItem(iTissue, 1);
+		}
 	}  
-}
-);
+});
 
 
 // Room: FenceLock ----------------------------------------------------------------------------------------
@@ -657,10 +634,12 @@ null, null, null,
 TakeLoveLock.setAction(
 new Room.Callback() {  
 	public void update(int numberOfVisits) {
-		You.updateItem(iLoveLocks, 1);
-		FenceLock.updateItem(iLoveLocks,0);
-		FenceLock.makeDeadEnd();
-		Tracks.setNext3(null,"","");
+		if (!You.have(iLoveLocks)){
+			You.updateItem(iLoveLocks, 1);
+			FenceLock.updateItem(iLoveLocks,0);
+			FenceLock.makeDeadEnd();
+			Tracks.setNext3(null,"","");
+		}
 	}  
 });
 
@@ -763,17 +742,8 @@ new Room.Description() {
 
 
 Tracks2.setOtherRooms(
-Tracks,
 null, null, null,
 "","","","","",""
-);
-
-Tracks2.setStuff(
-new ArrayList<Item>() {
-	{ add(iFlashlight);
-	}
-},
-null
 );
 
 // Room: MaintenanceShed ----------------------------------------------------------------------------------
@@ -823,51 +793,10 @@ MaintenanceRearDoor, MaintenanceShedFront, null,
 "",""
 );
 
-
 MaintenanceShed.setStuff(
-new ArrayList<Item>() {
-	{ add(iCrowbar);
-	}
-},
+new ArrayList<Item>() { {add(iCrowbar);} },
 null
 );
-
-/*
-// Room: TakeCrowbar ------------------------------------------------------------------------------
-TakeCrowbar.setDescription(
-"Crowbar: Taken",
-new Room.Description() {
-	public String[] make(int numberOfVisits) {
-		String strTemp[];
-		String a,b,c,d;
-		
-		 if (You.areWith(pMelissa)) { a=" Mel eyes the tool longingly."; } else { a=""; }
-		// if (You.have(ITEM)) { ACTION } else { ACTION }
-		// if (ROOM.hasItem(ITEM) { ACTION } else { ACTION }
-		// if (ROOM.hasPerson(PERSON) { ACTION } else { ACTION }
-		// if (ITEM.isOpen()) { ACTION } else { ACTION }			// useful for doors
-		
-		switch (numberOfVisits){
-			default:
-				strTemp = new String[] {
-					"You pick up the crowbar from the weeds, and stuff it in your backpack."+a
-				};
-			break;
-		}
-		
-		return strTemp;
-	}
-});
-
-TakeCrowbar.setAction(
-new Room.Callback() {  
-	public void update(int numberOfVisits) { 
-		You.updateItem(iCrowbar,1);
-		TakeCrowbar.updateItem(iCrowbar,0);
-		MaintenanceShed.setNext2(null,"","");
-	}  
-});
-*/
 
 // Room: MaintenanceRearDoor -----------------------------------------------------------------------------
 MaintenanceRearDoor.setDescription(
@@ -907,7 +836,6 @@ new Room.Description() {
 				};
 			break;
 		}
-		
 		return strTemp;
 	}
 });
@@ -1002,12 +930,11 @@ new Room.Description() {
 		String strTemp[];
 		String a,b,c,d;
 		
-		 if (You.areWith(pMelissa))	{ a="Melissa takes a little half-hearted flying kick at the door, barely tapping it with her foot, and then she laughs a little to herself and walks around the corner."; } 								   else { a=""; }
+		 if (You.areWith(pMelissa))	{ a="Melissa takes a little half-hearted flying kick at the door, barely tapping it with her foot, and then she laughs a little to herself and walks around the corner."; } 			 else { a=""; }
 		// if (You.have(ITEM)) { ACTION } else { ACTION }
 		// if (ROOM.hasItem(ITEM) { ACTION } else { ACTION }
 		// if (ROOM.hasPerson(PERSON) { ACTION } else { ACTION }
 
-		
 		switch (numberOfVisits){
 			case 1:
 				strTemp = new String[] {
@@ -1036,10 +963,7 @@ new Room.Description() {
 });
 
 MaintShedFrontDoor.setStuff(
-new ArrayList<Item>() {
-	{ add(iMaintShedFD);
-	}
-},
+new ArrayList<Item>() { {add(iMaintShedFD);} },
 null
 );
 
@@ -1052,10 +976,7 @@ new Room.Callback() {
 		}
 	}  
 });
-
 MaintShedFrontDoor.makeIntoAdoor();
-
-
 
 // Room: MaintShedInside --------------------------------------------------------------------------------
 MaintShedInside.setDescription(
@@ -1098,9 +1019,9 @@ new Room.Description() {
 	}
 });
 
-	// Room: BurlesqueParlor -----------------------------------------------------------------------------
-	BurlesqueParlor.setDescription(
-	"Burlesque Parlor",
+	// Room: FerrisWheel -----------------------------------------------------------------------------
+	FerrisWheel.setDescription(
+	"Ferris Wheel",
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
@@ -1141,11 +1062,11 @@ new Room.Description() {
 		}
 	});
 	
-	BurlesqueParlor.setOtherRooms(
-	MaintenanceShed, FerrisWheel, Gazebo,
-	"Maintenance Shed","",
-	"Ferris Wheel","",
-	"Gazebo",""
+	FerrisWheel.setOtherRooms(
+	Gazebo, ArcherySidestall, CircusTent,
+	"Gazebo","",
+	"Archery Sidestall","",
+	"Circus Tent",""
 	);
 	
 	// Room: Gazebo -----------------------------------------------------------------------------
@@ -1198,9 +1119,74 @@ new Room.Description() {
 	"Burlesque Parlor",""
 	);
 	
-	// Room: FerrisWheel --------------------------------------------------------------------------------
-	FerrisWheel.setDescription(
-	"Ferris Wheel",
+	// Room: BurlesqueParlor -----------------------------------------------------------------------------
+	BurlesqueParlor.setDescription(
+	"Burlesque Parlor",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d,e,f;
+		
+				if (You.areWith(pMelissa)) { c=" and Mel"; f=" Melissa tromps over to the sofa and sits on it, then flops comically over on her side and pretends to doze deeply.";} else { c="";f="";}
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+				if ((You.have(iFlashlight) && iFlashlight.isOn()) 
+					|| iBurlesqueSwitch.isOn()) { 
+					//TO DO: make a Room function that sets all items to be not quiet
+			   		a=" The room is small. Near the door is a light switch. Three round tables, with three white wireframe chairs leaned up against each one, fill the floor of the room. A little stage is on the far end. A plush curtain is drawn up and clasped to the left wall; the other curtain hangs flush, blocking the right side of the stage."; 
+			   		b="Next and to the left of the stage is an arched recession in the wall, just deep enough, and wide enough, to house a long velvet sofa. There is a painting on the wall behind the sofa. A chandelier hangs glitteringly above the stage.";
+			   		d=" Three round tables, with three chairs leaned up against each one, are in the middle of the room. A stage is on the far end. A plush curtain splits in the middle and opens to the left; the other curtain hangs fully extended, screening out the right side of the stage."; 
+			   		e="Next and to the left of the stage is an arched recession in the wall. In it is a long sofa. There is a painting on the wall behind the sofa." +f+ " A chandelier with green glass diamonds hangs above the stage.";
+			   	} 
+			   	
+			   	else { 
+			   		a=" You" +c+ " cannot see anything. You feel along the wall near the door and discover a light switch."; 
+			   		b="";
+			   		d=" You" +c+ " can't see a thing. You feel flitter your fingers around the wall near the door and discover a button that may be pushable."; 
+			   		e="";
+			   	}
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"You" +c+ " open the door and walk into the parlor." + a, b
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"You" +c+ " return to the parlor." + d,e
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"You" +c+ " return to the parlor." +a,b
+					};
+				break;
+			}
+			return strTemp;
+		}
+	});
+
+	BurlesqueParlor.setOtherRooms(
+	MaintenanceShed, FerrisWheel, BurlesqueStage,
+	"Maintenance Shed","Go to the maintenance shed.",
+	"Ferris Wheel","See what you can find at the ferris wheel.",
+	"Burlesque Stage","Explore the stage. What could lie behind the curtain?"
+	);
+	
+	BurlesqueParlor.setStuff(
+	new ArrayList<Item>() {{ 
+		add(iBurlesqueSofa);
+		add(iBurlesqueSwitch);
+		add(iBurlesquePainting);
+	}},
+	null);
+
+	// Room: BurlesqueStage -------------------------------------------------------------------------------
+	BurlesqueStage.setDescription(
+	"Burlesque Stage",
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
@@ -1240,13 +1226,13 @@ new Room.Description() {
 			return strTemp;
 		}
 	});
-
-	FerrisWheel.setOtherRooms(
-	Gazebo, ArcherySidestall, CircusTent,
-	"Gazebo","",
-	"Archery Sidestall","",
-	"Circus Tent",""
-	);
+	
+	BurlesqueStage.setStuff(
+	new ArrayList<Item>() {{
+		add(iBurlesqueManikin);
+		add(iBurlesquePiano);
+	}},
+	null);
 
 	// Room: FunnelcakeStand ------------------------------------------------------------------------
 	FunnelcakeStand.setDescription(

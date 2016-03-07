@@ -13,6 +13,7 @@ public class Item implements Serializable {
 	public boolean _quiet;					// keep scenery, like doors, from announcing themselves
 	public boolean _open;
 	public boolean _isDoor;					// is the item a door?
+	public boolean _takeable;
 	public transient ArrayList<Action> _actions;		// array of possible targets and actions on targets
 	public int _switchedOnStartTime;		// mark time item is turned on
 	public int _switchedOnTotalTime;	
@@ -102,33 +103,60 @@ public class Item implements Serializable {
 		_quiet = false;	
 		_open = false;
 		_isDoor = false;
+		_takeable = true;
 		_actions = new ArrayList<Action>();
 		_switchedOnStartTime = 0;
 		_switchedOnTotalTime = 0;	
 		_takenStartTime = 0;	
 	}
 	
-	public void initTransients(){
-		//_actions = new ArrayList<Action>();
+	public void set(String name, String description, String is_are, Item requires,
+					String requirementMetText, boolean quiet, boolean open, boolean isDoor) {
+		this._name = name;
+		this._description = description;
+		this._is_are = is_are;
+		this._requires = requires;
+		this._requirementMetText = requirementMetText;
+		this._quiet = quiet;
+		this._open = open;
+		this._isDoor = isDoor;
 	}
 	
 	public void set(String name, String description, String is_are, Item requires,
-					String requirementMetText, boolean quiet, boolean open, boolean isDoor) {
-		//if (!Globals.restoredFromSavedState){
-			this._name = name;
-			this._description = description;
-			this._is_are = is_are;
-			this._requires = requires;
-			this._requirementMetText = requirementMetText;
-			this._quiet = quiet;
-			this._open = open;
-			this._isDoor = isDoor;
-		//}
+		String requirementMetText, boolean quiet, boolean open, boolean isDoor, boolean takeable) {
+		this._name = name;
+		this._description = description;
+		this._is_are = is_are;
+		this._requires = requires;
+		this._requirementMetText = requirementMetText;
+		this._quiet = quiet;
+		this._open = open;
+		this._isDoor = isDoor;
+		this._takeable = takeable;
+	}
+	
+	public void set(String name, String description, String is_are, boolean quiet, boolean takeable) {
+		this._name = name;
+		this._description = description;
+		this._is_are = is_are;
+		this._quiet = quiet;
+		this._takeable = takeable;
+	}
+	
+	public void set(String name, String description, boolean quiet, boolean takeable) {
+		this._name = name;
+		this._description = description;
+		this._quiet = quiet;
+		this._takeable = takeable;
 	}
 	
 	public void set(String name, String description){
 		this._name = name;
 		this._description = description;
+	}
+	
+	public void setTakeable(boolean tf){
+		_takeable = tf;
 	}
 	
 	public void requirementMet(boolean TF){
