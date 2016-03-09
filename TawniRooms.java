@@ -44,35 +44,47 @@ public class TawniRooms extends Rooms implements Serializable {
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
-			String a,b,c,d;
+			String a,b,c,d,e;
 		
-			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
-			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			if (You.areWith(pMelissa)) 
+				{ 
+				a=" and Mel";
+				b=" Seemingly unaware that something is watching you, Mel steps forward into the darkness. She lets out a scream followed by fighting noises. After a few minutes, she falls silent.";
+				c=" You jump when Mel says 'Boo!' just behind you. You start to feel upset with her, but then you realize that it's just her way of helping you face your fears. She's always encouraged you to be less afraid of things.";
+				d=" Mel lets out a whoop and runs toward the ringmaster's stand in the middle of the room. As Mel jumps up onto the stand, a dog runs from behind it.";
+				} 
+			else { 
+				a="";b="";c="";d=""; }
+			if (You.have(iFlashlight) && iFlashlight.isOn()){ 
+				e="You shine the flashlight around the room. There are various trapezes and rings hanging from the ceiling. Several faded wooden stands are scattered around. Tiered benches line the walls on all sides." + d ;
+
+				} 
+			else { 
+				e=""; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
-			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
 			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
 		
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						"You" + a + " enter the main tent flaps. It is so dark that you can't see your hand in front of your face. You have the distinct feeling that you are being watched." + b
 					};
 				break;
 				case 2:
 					strTemp = new String[] {
-						"ROOMDESC2"
+						"It is still pitch black. You can hear something rustling in the darkness." + c
 					};
 				break;
 				case 3:
 					strTemp = new String[] {
-						"ROOMDESC3"
+						"You scream as something brushes against your leg."
 					};
 				break;
 				default:
 					strTemp = new String[] {
-						"ROOMDESC_Default"
+						"The fear is too much. Your heart stops and you crumble to the ground in a heap."
 					};
 				break;
 			}
@@ -527,10 +539,10 @@ public class TawniRooms extends Rooms implements Serializable {
 			String a,b,c,d,e,f;
 		
 			if (You.areWith(pMelissa)) { 
-				a="Mel grabs a tree branch and walks out onto the train tracks, balancing on one of the rails like a tight-rope walker. "; 
-				b="After 10 feet, Mel loses her balance and falls off. She lets out a wail as she acts like she's falling from high in the air, and then crumbles to the ground.";
-				c="When you walk to her, she grabs your arm and pulls herself up. With a somber gaze, she says 'You saved my life. I am eternally indebted to you.";
-				d="You and Mel are standing on the tracks. There are crickets chirping in the tall grasses.";
+				a=" Mel grabs a tree branch and walks out onto the train tracks, balancing on one of the rails like a tight-rope walker. "; 
+				b=" After 10 feet, Mel loses her balance and falls off. She lets out a wail as she acts like she's falling from high in the air, and then crumbles to the ground.";
+				c=" When you walk to her, she grabs your arm and pulls herself up. With a somber gaze, she says 'You saved my life. I am eternally indebted to you.";
+				d=" You and Mel are standing on the tracks. There are crickets chirping in the tall grasses.";
 			} 
 			else { 
 				a=""; 
@@ -556,17 +568,17 @@ public class TawniRooms extends Rooms implements Serializable {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"The sign above the admission booth reads 'RAIN IDES $2.' Only the first few feet of train tracks are visible before they are covered with overgrown grass. Train cars sit in the grass about 50 yards ahead." + a + b
+						"The sign above the admission booth reads 'RAIN IDES $2.' Only the first few feet of train tracks are visible before they are covered with overgrown grass. Train cars sit in the grass about 50 yards ahead." 
 					};
 				break;
 				case 2:
 					strTemp = new String[] {
-						"Popcorn litters the floor." + c + "You can feel it getting stuck in your shoe soles the same way it gets stuck in your teeth." 
+						"Popcorn litters the floor. You can feel it getting stuck in your shoe soles the same way it gets stuck in your teeth." 
 					};
 				break;
 				case 3:
 					strTemp = new String[] {
-						"There is a large bumblebee spray painted on the back side of the sign." + b
+						"There is a large bumblebee spray painted on the back side of the sign." 
 					};
 				break;
 				default:
