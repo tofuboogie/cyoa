@@ -2,6 +2,12 @@ package dtz.cyoa;
 
 class Rooms_bulk extends Rooms {
 
+/*Another option: start with String[] of Room names, for loop thru each string and add to a HashMap<String,Room>, init room in the map, then use .get(key) to return a room. Loop: 
+Map<String,Room> map = new HashMap<String,Room>;
+for(Map.Entry<String,Room> entry : map.entrySet()) {
+	System.out.println("key=" +entry.getKey() + "value=" + entry.getValue());
+}*/
+
 	public static void initBulkArrays(){
 		tz_rooms = new Room[] {CottonCandyStand, 
 	MiniatureTrainStation, MiniatureTrainCars, ChairSwing, ChairSwingTower, ChairSwingSeat,
