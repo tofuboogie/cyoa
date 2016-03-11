@@ -64,7 +64,7 @@ public class Items extends Rooms implements Serializable {
 					
 		
 	public void initializeItemsActions() {	
-		/*	
+		/*
 		<Item object>.addAction(
 			Object itemTarget, 
 			new String[] { "ACTIONDESC1", "ACTIONDESC2", "ACTIONDESC3", ... }, 
@@ -125,6 +125,26 @@ public class Items extends Rooms implements Serializable {
 				}
 			}
 		);
+		
+		
+		iYourself.addAction(
+			iBurlesqueSwitch, 
+			new String[] { "" }, 
+			new Item.Callback(){
+				public String update(int numberOfTries){
+					String str = "";
+					switch(numberOfTries){
+						default: 
+							if (iBurlesqueSwitch.toggleOnOff() == 1) {
+								str += "You push the button, and the other one pops out. A red light within the chandelier glows, casting light over the stage and surrounding area.";
+							}
+							else { str+="You push the button and turn off the red light.";}
+						break;
+					}
+					return str;
+				}
+			}
+		);	
 		
 		
 		

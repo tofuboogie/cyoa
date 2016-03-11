@@ -239,6 +239,7 @@ public class Rooms implements Serializable {
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
 			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
 			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+			// move NPC to another room: PERSON.goesTo(ROOM,You); 
 		
 			switch (numberOfVisits){
 				case 1:

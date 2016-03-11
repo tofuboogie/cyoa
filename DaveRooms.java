@@ -1114,9 +1114,9 @@ new Room.Description() {
 
 	Gazebo.setOtherRooms(
 	MaintenanceShed, FerrisWheel, BurlesqueParlor,
-	"Maintenance Shed","",
-	"Ferris Wheel","",
-	"Burlesque Parlor",""
+	"Maintenance Shed","Check out the shed.",
+	"Ferris Wheel","Walk over to the ferris wheel.",
+	"Burlesque Parlor","Explore your naughty side."
 	);
 	
 	// Room: BurlesqueParlor -----------------------------------------------------------------------------
@@ -1125,9 +1125,14 @@ new Room.Description() {
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
-			String a,b,c,d,e,f;
-		
-				if (You.areWith(pMelissa)) { c=" and Mel"; f=" Melissa tromps over to the sofa and sits on it, then flops comically over on her side and pretends to doze deeply.";} else { c="";f="";}
+			String a,b,c,d,e,f,g,h,i;
+			
+				if (iBurlesqueSwitch.isOn()) {
+					g = " The red glow warms her face.";
+					h = " The light from the red chandelier seems to float into the room like a fog. It flickers occasionally.";
+					i = " The diamonds refract and reflect the red light.";
+				} else {g="";h="";i="";}
+				if (You.areWith(pMelissa)) { c=" and Mel"; f=" Melissa tromps over to the sofa and sits on it, then flops comically over on her side and pretends to doze deeply."+g;} else { c="";f="";}
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
@@ -1135,10 +1140,10 @@ new Room.Description() {
 				if ((You.have(iFlashlight) && iFlashlight.isOn()) 
 					|| iBurlesqueSwitch.isOn()) { 
 					//TO DO: make a Room function that sets all items to be not quiet
-			   		a=" The room is small. Near the door is a light switch. Three round tables, with three white wireframe chairs leaned up against each one, fill the floor of the room. A little stage is on the far end. A plush curtain is drawn up and clasped to the left wall; the other curtain hangs flush, blocking the right side of the stage."; 
+			   		a=" The room is small. Near the door is a light switch. Three round tables, with three white wireframe chairs leaned up against each one, fill the floor of the room. A little stage is on the far end. A plush curtain is drawn up and clasped to the left wall; the other curtain hangs flush, blocking the right side of the stage."+h; 
 			   		b="Next and to the left of the stage is an arched recession in the wall, just deep enough, and wide enough, to house a long velvet sofa. There is a painting on the wall behind the sofa. A chandelier hangs glitteringly above the stage.";
 			   		d=" Three round tables, with three chairs leaned up against each one, are in the middle of the room. A stage is on the far end. A plush curtain splits in the middle and opens to the left; the other curtain hangs fully extended, screening out the right side of the stage."; 
-			   		e="Next and to the left of the stage is an arched recession in the wall. In it is a long sofa. There is a painting on the wall behind the sofa." +f+ " A chandelier with green glass diamonds hangs above the stage.";
+			   		e="Next and to the left of the stage is an arched recession in the wall. In it is a long sofa. There is a painting on the wall behind the sofa." +f+ " A chandelier with clear glass diamonds hangs above the stage."+i;
 			   	} 
 			   	
 			   	else { 
@@ -1192,18 +1197,29 @@ new Room.Description() {
 			String strTemp[];
 			String a,b,c,d;
 		
-			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			if (You.areWith(pMelissa)) { 
+				b=" and Melissa"; 
+				c=" Mel call out from behind you, \"You OK?,\" and you respond that you are.";
+				d=" Mel leans in close to read it with you.";
+			} else { b="";c="";d=""; }
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
 			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
 			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+			if ((You.have(iFlashlight) && iFlashlight.isOn()) 
+					|| iBurlesqueSwitch.isOn()) { 
+				a="You" +b+ " walk up to the stage, and set up onto it. You walk behind the curtain and see a little piano and a dressing form. A corn broom leans against the wall in the corner. You notice a little piece of paper on the floor, poking out from underneath the piano. You pick it up and flip it over." +d+ " Scribbled in smudged pencil, the note reads, \"if u notice him around here again call my cell\"";
+			}
+			else {
+				a="You fumble your way up to the stage, tripping on a little space heater and slamming your crotch into a chair, which you knock over with a crash." +c+ " You stop for a second, with your hands on your knees, more frustrated than injured. You feel around and find a curtain, which you pull aside, but cannot see a thing. You pull the curtain to your nose and it smells of begonias.";
+			}
 		
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						a
 					};
 				break;
 				case 2:
@@ -1292,7 +1308,11 @@ new Room.Description() {
 			String strTemp[];
 			String a,b,c,d;
 		
-			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			 if (You.areWith(pMelissa)) { 
+			 	a = " Melissa wanders off.";
+			 	pMelissa.goesTo(BumperCars,You); 
+			 } 
+			 else { a=""; }
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
@@ -1303,7 +1323,7 @@ new Room.Description() {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						"You walk into the wide open public square. The area is about half the size of a football field. It is a patchwork of dusty dirt and overgrown grass, with a central section of cracked asphalt and little concrete pavers that radiate out from the middle." + a
 					};
 				break;
 				case 2:

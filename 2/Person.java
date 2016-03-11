@@ -8,6 +8,13 @@ public class Person implements Serializable {
 	public int _health;
 	public boolean _dead;
 
+	public void goesTo(Room room, Player you) {
+		room.updatePerson(this,1);
+		if (you.areWith(this)) {
+			you.updatePerson(this,0);
+		}
+	}
+
 	public Person(){
 		_name = "No name";
 		_description = "The person with no name";
