@@ -1,0 +1,2 @@
+#!/bin/bash
+tmp/funsigs -a >tmp/funsigs.txt.java; gedit tmp/funsigs.txt.java &

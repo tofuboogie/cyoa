@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $all = $ARGV[0];
+my @files;
+
+if (defined $all){
+	#print "$all\n";
+	if ($all eq "-a") {
+		@files = ("Room.java", "Item.java", "2/Person.java", "Player.java");
+		
+		for (my $i=0; $i<=$#files; $i++){
+		
+			open FILES, "$files[$i]";
+			my $filename = $files[$i];
+			$filename =~ s/2?\/?(\w+).java/\U$1/;
+			print "$filename:\n";
+		
+			while (my $text = <FILES>){
+				&findFunctions($text);
+			}
+			print "\n\n";
+		}
+	}
+}
+else {
+
+	if (-t STDIN){	#user gave no args or redirection; prevents terminal going interactive
+		print "Usage:\n\tfunsigs -a\t\t// all functs\n\tfunsigs <Room.java\t// passing in an input file, like Room.java or Item.java, etc\n";
+		exit; #die;
+	}
+	
+	while (my $text = <STDIN>){
+		&findFunctions($text);
+	}
+}
+
+
+sub findFunctions{
+	my $text = $_[0];
+	if ($text !~ /\/\/\s*deprecated/) {
+		if ($text =~ /public (\w+ \w+\()(.*?)\)\s*{(.*)/){
+			print "\t$1";
+			my $three = $3;
+			my @params = ($2 =~ /(?:final )?([\w<>]+ \w+)/gi);
+			for (my $i=0;$i<=$#params;$i++){
+				print "$params[$i]";
+				if ($i != $#params) { print ", "; }
+				if ($i>=4 && $i%4 == 0) { print "\n\t"; }
+			}
+			print ")$three\n";
+		}
+	}
+}
+

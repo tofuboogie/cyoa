@@ -26,7 +26,7 @@ public class Room implements Serializable{
 	public ArrayList<Person> _persons;
 	public int _numberOfVisits;
 	public transient Callback _callback;
-	private boolean _isDoor;
+	private boolean _isDoor; //deprecated
 	
 	public String getItems(int withNums, boolean includeDoors) {					
 		String itemsDescString = "";
@@ -147,7 +147,7 @@ public class Room implements Serializable{
 		_isDoor = false; 
 	}
 	
-	public void set(String name, Description description, Room previous, Room next1, Room next2, Room next3, String btn1Label, String btn1Txt, String btn2Label, String btn2Txt, String btn3Label, String btn3Txt, ArrayList<Item> items, ArrayList<Person> persons, Callback callback, boolean isDoor) {
+	public void set(String name, Description description, Room previous, Room next1, Room next2, Room next3, String btn1Label, String btn1Txt, String btn2Label, String btn2Txt, String btn3Label, String btn3Txt, ArrayList<Item> items, ArrayList<Person> persons, Callback callback, boolean isDoor) { //deprecated
 		this._name = name;
 		this._description = description;
 		this._previous = previous;
@@ -171,8 +171,8 @@ public class Room implements Serializable{
 		this._description = description;
 	}
 	
-	// deprecated
-	public void setOtherRooms(Room previous, Room next1, Room next2, Room next3, String btn1Label, String btn1Txt, String btn2Label, String btn2Txt, String btn3Label, String btn3Txt){
+	//deprecated
+	public void setOtherRooms(Room previous, Room next1, Room next2, Room next3, String btn1Label, String btn1Txt, String btn2Label, String btn2Txt, String btn3Label, String btn3Txt){ //deprecated
 		if (!Globals.restoredFromSavedState){
 			this._previous = previous;
 			this._next1 = next1;
@@ -214,12 +214,6 @@ public class Room implements Serializable{
 	public void setAction(Callback callback){
 		this._callback = callback;
 	}
-	
-	/*
-	public void setPrevious(Room previous){
-		this._previous = previous;
-	}
-	*/
 	
 	public void setNext1(Room next1, String btn1Label, String btn1Txt){
 		this._next1 = next1;
@@ -287,7 +281,7 @@ public class Room implements Serializable{
 		return false;
 	}
 	
-	public void updatePerson(Person person, int action){
+	public void updatePerson(Person person, int action){ //1=add, 0=remove
 		
 		switch (action) {
 			case 1:			//add
@@ -304,7 +298,7 @@ public class Room implements Serializable{
 		}
 	}
 	
-	public void updateItem(Item item, int action){
+	public void updateItem(Item item, int action){ //1=add, 0=remove
 		
 		switch (action) {
 			case 1:			//add
@@ -321,11 +315,11 @@ public class Room implements Serializable{
 		}
 	}
 	
-	public void makeIntoAdoor() {
+	public void makeIntoAdoor() { //deprecated
 		_isDoor = true;
 	}
 	
-	public boolean isAdoor() {
+	public boolean isAdoor() { //deprecated
 		return _isDoor;
 	}
 	
