@@ -1138,8 +1138,7 @@ new Room.Description() {
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
 				if ((You.have(iFlashlight) && iFlashlight.isOn()) 
-					|| iBurlesqueSwitch.isOn()) { 
-					//TO DO: make a Room function that sets all items to be not quiet
+					|| iBurlesqueSwitch.isOn()) {
 			   		a=" The room is small. Near the door is a light switch. Three round tables, with three white wireframe chairs leaned up against each one, fill the floor of the room. A little stage is on the far end. A plush curtain is drawn up and clasped to the left wall; the other curtain hangs flush, blocking the right side of the stage."+h; 
 			   		b="Next and to the left of the stage is an arched recession in the wall, just deep enough, and wide enough, to house a long velvet sofa. There is a painting on the wall behind the sofa. A chandelier hangs glitteringly above the stage.";
 			   		d=" Three round tables, with three chairs leaned up against each one, are in the middle of the room. A stage is on the far end. A plush curtain splits in the middle and opens to the left; the other curtain hangs fully extended, screening out the right side of the stage."; 
@@ -1258,8 +1257,15 @@ new Room.Description() {
 			String strTemp[];
 			String a,b,c,d;
 		
-			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
-			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			if (You.areWith(pMelissa)) { c=" and Mel"; } else {c="";}
+			if (You.have(iFlashlight) && iFlashlight.isOn()) { 
+				b=" Your flashlight is bright enough to illiminate most of the stand all at once. You" +c+ " walk inside. There is a long table near the serving windows, and some mostly empty shelves behind it. There is a deep and wide deep-fryer under the shelves, and a double-compartment commercial sink next to it. A dirty rag is folded over the edge of the sink."; 
+			} else { b=" You cannot see anything inside."; }
+			if (You.areWith(pMelissa)) { 
+				a="Mel walks around the side, and you follow, finding a door that is only kept closed by a chair wedged under the doorknob. You pull the chair out and the door creaks, millimeter by creaking millimeter, completely open."+b; 
+				d=" \"This is boring\", Mel says. \"Let's go somewhere else.\" You agree that this stand is boring.";
+			} else { a=""; d="";}
+
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
@@ -1269,22 +1275,17 @@ new Room.Description() {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						"The large billboard atop the stand reads \"Whirlin' Tornado Funnel Cakes\", and has two hand-painted tornadoes on opposite sides of the sign. The tornadoes have short curved lines near them that are supposed to convey motion, but end up looking like double parentheses. The billboard is lined by a series of small clear incandescent bulbs, all of which are off. Two sheets of well-weathered plywood are nailed over the serving windows.", a
 					};
 				break;
 				case 2:
 					strTemp = new String[] {
-						"ROOMDESC2"
-					};
-				break;
-				case 3:
-					strTemp = new String[] {
-						"ROOMDESC3"
+						"You" +c+ " return to the stand."+d+" You throw a little pebble at the plywood, and it goes \"plub\" and falls to the ground."
 					};
 				break;
 				default:
 					strTemp = new String[] {
-						"ROOMDESC_Default"
+						"You" +c+ " return to the stand. Why people ever ate the squished up little patty-cakes of intestine-looking fried batter, you'll never understand."
 					};
 				break;
 			}
