@@ -6,7 +6,7 @@ class Rooms_bulk extends Rooms {
 
 		dt_rooms = new Room[] {Begin,FenceHole,Home,Work,Tracks,Fence,TieShoes,FenceLock,Tracks2,ShoesNoise,FreakOut,Melissa,TakeLoveLock,AskMelissa,MaintenanceShed,MaintenanceRearDoor,MaintenanceRearWindow,MaintenanceShedFront,MaintShedFrontDoor,MaintShedInside,TakeCrowbar,Gazebo,BurlesqueParlor,FerrisWheel,FunnelcakeStand,PublicSquare,ArcherySidestall,BasketballSidestall,HotDogCart,MerryGoRound,PortaJon,BumperCars,TicketBooth,BurlesqueStage};
 
-		items = new Item[] {iYourself,iTshirt,iLoveLocks,iLoveLockKey,iThingamabob,iCrowbar,iMaintShedFD,iTissue,iChairSwingGrating,iChairSwingDoor,iChairSwingDoorHandle,iChairSwingLever,iChairSwingTowerNearTopDoor,iFlashlight,iBurlesqueSofa,iBurlesqueSwitch,iBurlesquePiano,iBurlesquePainting,iBurlesqueManikin};
+		items = new Item[] {iYourself,iTshirt,iLoveLocks,iLoveLockKey,iThingamabob,iCrowbar,iMaintShedFD,iTissue,iChairSwingGrating,iChairSwingDoor,iChairSwingDoorHandle,iChairSwingLever,iChairSwingTowerNearTopDoor,iFlashlight,iBurlesqueSofa,iBurlesqueSwitch,iBurlesquePiano,iBurlesquePainting,iBurlesqueManikin,iBumperCar1,iBumperCar2,iBumperCar3};
 	}
 	
 	public static void changeFieldReferences(){ // bc Java has no iYourself**
@@ -95,5 +95,8 @@ class Rooms_bulk extends Rooms {
 		iBurlesquePiano = items[16];
 		iBurlesquePainting = items[17];
 		iBurlesqueManikin = items[18];
+		iBumperCar1 = items[19];
+		iBumperCar2 = items[20];
+		iBumperCar3 = items[21];
 	}
 }

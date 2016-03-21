@@ -55,6 +55,10 @@ public class Items extends Rooms implements Serializable {
 		iBurlesquePiano.set("little piano","A vintage Schoenhut toy piano. It is a tiny upright, with only 22 keys, and has some simple vine and leaf stenciling on the upper panel.",true,false);
 		iBurlesquePainting.set("painting","The painting is that of a semi-nude woman, dressed only in a diaphanous peignoir. She is leaning back against a large stone, set on a pitch black background, with her wrist limply pressed against her forehead.",true,false);
 		iBurlesqueManikin.set("dress form","An old dress form, which looks like a headless and limbless mannequin skewered on a steel pole that rolls on a cast base with four little caster wheels. Someone painted a little red dot on one breast, and a green dot on the other. \"Christmas nipples,\" you mutter to yourself, with an ineluctable grin.",true,false);
+		iBumperCar1.set("blue bumper car","A powder blue bumper car, modeled on the Model A Phaeton, mid-1930s. It has a cracked and dried out rubber surround, and a metal pole in the back that reaches up to the ceiling.",true,false);
+		iBumperCar2.set("maroon bumper car","A maroon bumper car, modeled on the Graham Business Coupe, circa 1930. It has little brackets for its rubber surround, which is missing, and a metal pole in the back that is bent so that it doesn't quite make it to the ceiling.",true,false);
+		iBumperCar3.set("gold bumper car","A gold bumper car, modeled on 1930s Packard roadster. Its bumper is mostly white and looks like you could flake off the dried rubber with your fingernail. A pole at the rear leads up to the ceiling, and has little wire bristles on the end.",true,false);
+
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
 				String requirementMetText, boolean quiet, boolean open, boolean isDoor, boolean takeable);
@@ -146,7 +150,55 @@ public class Items extends Rooms implements Serializable {
 			}
 		);	
 		
+		iYourself.addAction(
+			iBumperCar1, 
+			new String[] { "" }, 
+			new Item.Callback(){
+				public String update(int numberOfTries){
+					String str = "";
+					String a,b,c,d;
+					if (You.areWith(pMelissa)) {
+						a=" Mel jumps in beside you.";
+						b=" Mel exits, popping her bubblegum and stretching out the word, \"Laaaaaaaaaaaaaaaaaaaaaaaaaaaame.\"";
+						c=" This time Mel doesn't join you.";
+						d=" to Mel's footsteps whisking across the floor";
+					} else {a="";b="";c="";d="";}
+					switch(numberOfTries){
+						case 1: 
+							str = "You enter the Phaeton and settle in." +a+ " The steering wheel is just bare metal with two short strips of duct tape randomly wrapped around parts of it. You flick a switch on the dash, the headlights come on, and the car moves forward slowly. You turn the wheel to the left, and the car lurches slowly to the right. Then the headlights dim as you slow down inch by painful inch, and go out as you come to a full stop. One of the fluorescent bulbs overhead also goes out."+b;
+						break;
+						default: 
+							str = "You sit back in the Phaeton."+c+" The switch is still in the 'ON' position from last time. Expecting, or at least hoping for, a miracle, you flick it off and then back on. The fossilized faux Phaeton just sits there. You sit there for a while, listening"+d+ ", and step back out.";
+						break;
+					}
+					return str;
+				}
+			}
+		);	
 		
+		iYourself.addAction( 
+			iBumperCar3, 
+			new String[] { "" }, 
+			new Item.Callback(){
+				public String update(int numberOfTries){
+					String str = "";
+					String a,b;
+					if (You.areWith(pMelissa)) {
+						a=" Mel jumps in beside you.";
+						b=" Mel discovers a cigarette butt in the crack of the seat and jokingly tries to shove it up your nose, and then exits the car laughing a little. \"What a little roadster jokester,\" you stupidly think to yourself.";
+					} else {a="";b="";}
+					switch(numberOfTries){
+						case 1: 
+							str = "You enter the roadster and sit down." +a+ " You flick the sole switch on the dash, and surprise! Nothing happens."+b+" You exit the vehicle.";	
+						break;
+						default: 
+							str = "You lean back over the seat and toggle the switch a few times, not bothering to get in the car. As expected, no dice, so, oh well. You walk away.";
+						break;
+					}
+					return str;
+				}
+			}
+		);	
 		
 		// END iYourself ----------------------------------------------------------------------------------
 			

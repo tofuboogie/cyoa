@@ -1613,10 +1613,18 @@ new Room.Description() {
 			String strTemp[];
 			String a,b,c,d;
 		
-			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			if (You.areWith(pMelissa)) { 
+				a=" and Mel";
+			} else { 
+			 	a=""; 
+			}
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
-			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			if (BumperCars.hasPerson(pMelissa)) { 
+				b=" Mel is here, and she waves to you with a little wry smile. \"I'd wondered where you'd snuck off to,\" you say to her, and she replies, \"Just being a cat.\"";
+				You.updatePerson(pMelissa, 1); 
+				BumperCars.updatePerson(pMelissa, 0);
+			} else { b=""; }
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
 			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
 			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
@@ -1624,22 +1632,23 @@ new Room.Description() {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						"You" +a+ " enter the bumper car building."+b+" There are two 8-foot fluorescent tubes already lit, one overhead, and another on the ceiling in the middle of the room. They are just bright enough so that you can make out most of the details in the room.",
+						"Ahead of you is a walkway along the wall, with access to restrooms and a closed concession stand. The bumper car field is to your right, down a couple of steps. The floor is some sort of metal, and you notice that there is sheets of conductive mesh hanging from the low ceiling. There are five cars parked haphazardly in the far corner."
 					};
 				break;
 				case 2:
 					strTemp = new String[] {
-						"ROOMDESC2"
+						"You" +a+ " are back with the bumper cars. One of the lights above buzzes, and then flickers out. Then it flickers back on."
 					};
 				break;
 				case 3:
 					strTemp = new String[] {
-						"ROOMDESC3"
+						"You" +a+ " are back with the bumper cars. One of the lights above flickers and pops. For a second, your eye catches some movement over by the bumper cars."
 					};
 				break;
 				default:
 					strTemp = new String[] {
-						"ROOMDESC_Default"
+						"You" +a+ " are back with the bumper cars. One of the lights above crackles, and then flickers. You notice that it makes your shadow dance around."
 					};
 				break;
 			}
@@ -1654,6 +1663,16 @@ new Room.Description() {
 	"Porta-Jon","",
 	"Ticket Booth",""
 	);
+	
+	BumperCars.setStuff(
+	new ArrayList<Item>() {{ 
+		add(iBumperCar1);
+		add(iBumperCar2);
+		add(iBumperCar3);
+	}},
+	new ArrayList<Person>()
+	);
+	
 	
 	// Room: TicketBooth --------------------------------------------------------------------------------
 	TicketBooth.setDescription(

@@ -70,7 +70,7 @@ public class Player implements Serializable {
 		}
 	}
 	
-	public void updatePerson(Person companion, int action){
+	public void updatePerson(Person companion, int action){ //0=remove; 1=add
 		
 		switch (action) {
 			case 1:			//add
@@ -87,7 +87,7 @@ public class Player implements Serializable {
 		}
 	}
 	
-	public void updateItem(Item item, int action){
+	public void updateItem(Item item, int action){ //0=remove; 1=add
 		
 		switch (action) {
 			case 1:			//add
@@ -104,7 +104,7 @@ public class Player implements Serializable {
 		}
 	}
 	
-	public void updateWearing(Item item, int action){
+	public void updateWearing(Item item, int action){ //0=remove; 1=add
 		
 		switch (action) {
 			case 1:			//add
