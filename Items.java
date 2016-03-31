@@ -58,7 +58,8 @@ public class Items extends Rooms implements Serializable {
 		iBumperCar1.set("blue bumper car","A powder blue bumper car, modeled on the Model A Phaeton, mid-1930s. It has a cracked and dried out rubber surround, and a metal pole in the back that reaches up to the ceiling.",true,false);
 		iBumperCar2.set("maroon bumper car","A maroon bumper car, modeled on the Graham Business Coupe, circa 1930. It has little brackets for its rubber surround, which is missing, and a metal pole in the back that is bent so that it doesn't quite make it to the ceiling.",true,false);
 		iBumperCar3.set("gold bumper car","A gold bumper car, modeled on 1930s Packard roadster. Its bumper is mostly white and looks like you could flake off the dried rubber with your fingernail. A pole at the rear leads up to the ceiling, and has little wire bristles on the end.",true,false);
-
+		iArrows.set("arrows","A bundle of 5 arrows, tied together with a black shoestring. All but one of them are so dull that their tips look like pencils whose erasers are just nubs. The fifth one, however is very sharp, and must be handled with utmost care.",false,true);
+		iBasketball.set("basketball","A worn old Wilson ball. The black rubber in the ribs is fraying a bit, and although severly underinflated, it is still usable.",false,true);
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
 				String requirementMetText, boolean quiet, boolean open, boolean isDoor, boolean takeable);
@@ -277,6 +278,26 @@ public class Items extends Rooms implements Serializable {
 				}
 			}
 		);
+
+		
+		iYourself.addAction(
+		iBasketball, 
+			new String[] { "You shoot at the basket and miss. You were always more a of ping-pong pro anyhow.", "You shoot. The ball hurls through the air. Time slows down. It spins over and over, slowly, through the dense atmosphere and lands on the rim. The sphere deforms, and ever so microscopically it wraps itself around the upper edge of the rim, then regains its turgidity and bounces upward. It comes down in the same place, but slightly more toward the hole, and bounces up again, and over. It drops through the net, time normalizes, and you hear the whoosh as it slides through the net.","You shoot again and miss.","You shoot again and miss, again.","You shoot and hit the backboard hard and the ball bounces back to you.","You shooot and whang it off the rim.","You shoot, free-throw style, and nail it. Nothing but net.","You shoot. You miss. You cry a little inside.","You shoot again and miss. Your arms are getting tired, and you tuck the ball between your legs as you stretch out your shoulder.","You shoot again and miss." }, 
+			new Item.Callback(){
+				public String update(int numberOfTries){
+					String str = "";
+					switch(numberOfTries){
+						case 1: 	
+						break;
+						case 2: break;
+						case 3: break;
+						default: 
+						break;
+					}
+					return str;
+				}
+			}
+		);	
 
 
 	// End item definitions

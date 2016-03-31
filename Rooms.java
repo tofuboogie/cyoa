@@ -32,7 +32,7 @@ public class Rooms implements Serializable {
 	protected static Room TakeCrowbar;
 	protected static Room Gazebo, BurlesqueParlor;
 	protected static Room FerrisWheel, FunnelcakeStand, PublicSquare;
-	protected static Room ArcherySidestall,BasketballSidestall, HotDogCart;
+	protected static Room ArcherySidestall, ArcherySidestallInside, BasketballSidestall, HotDogCart;
 	protected static Room MerryGoRound, PortaJon, BumperCars, TicketBooth;
 	protected static Room BurlesqueStage;
 	
@@ -45,7 +45,7 @@ public class Rooms implements Serializable {
 	protected static Item iChairSwingTowerNearTopDoor, iFlashlight, iBurlesqueSofa, iBurlesqueSwitch;
 	protected static Item iBurlesquePiano, iBurlesquePainting, iBurlesqueManikin;
 	protected static Item iBumperCar1, iBumperCar2, iBumperCar3;
-	
+	protected static Item iArrows, iBasketball;
 	//persons
 	protected static Person pMelissa;
 	
@@ -223,6 +223,12 @@ public class Rooms implements Serializable {
 	
 	/*
 
+	ROOM.setDescription(
+	"ROOMNAME",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
 					****************TEMPLATES*****************
 	// ROOM.setDescription(String name, Description description);
 	// Room: ROOM ----------------------------------------------------------------------------------------
@@ -232,7 +238,8 @@ public class Rooms implements Serializable {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
 			String a,b,c,d;
-		
+	
+			if (You.areWith(pMelissa)) {a=" and Mel"; } else { a=""; }
 			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }

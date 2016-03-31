@@ -1363,7 +1363,8 @@ new Room.Description() {
 			String strTemp[];
 			String a,b,c,d;
 		
-			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			if (You.areWith(pMelissa)) { 
+				a=" and Mel"; } else { a=""; }
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
@@ -1374,22 +1375,12 @@ new Room.Description() {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
-					};
-				break;
-				case 2:
-					strTemp = new String[] {
-						"ROOMDESC2"
-					};
-				break;
-				case 3:
-					strTemp = new String[] {
-						"ROOMDESC3"
+						"The sidestall is a simple plywood booth with two round targets hanging on the back wall. The targets are shredded from continual exposure to blunt arrows. The stall has two American flag banners stapled along the lower front panel, and scalloped red rolls of corrugated cardboard trim lining the tops and sides of the two openings. It has the feel of a game you might see at a bad prom. The booth is really shallow, so the professed archers must have been required to stand at least ten feet away."
 					};
 				break;
 				default:
 					strTemp = new String[] {
-						"ROOMDESC_Default"
+						"You" +a+ " are back at the archery sidestall. It's really boring here."
 					};
 				break;
 			}
@@ -1399,22 +1390,90 @@ new Room.Description() {
 	});
 
 	ArcherySidestall.setOtherRooms(
-	FerrisWheel, FunnelcakeStand, BasketballSidestall,
+	FerrisWheel, ArcherySidestallInside, BasketballSidestall,
 	"Ferris Wheel","",
-	"Funnelcake Stand","",
+	"Archery Booth","Enter the archery sidestall.",
 	"Basketball Sidestall",""
 	);
+
+
 	
+	// Room: ArcherySidestallInside ---------------------------------------------------------------------------------------
+	ArcherySidestallInside.setDescription(
+	"Inside the Archery Sidestall",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+		
+			if (You.areWith(pMelissa) && ArcherySidestallInside.hasItem(iArrows)){ 
+				a=" Melissa watches, then leans over the side to peer into the structure. \"Hey, what's that\", she says, pointing at the floor."; } else { a=""; }
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			if (ArcherySidestallInside.hasItem(iArrows)) { 
+				b=" You look into the corner and see a bundle of arrows."; 
+				c=" You nearly step on a pile of arrows as you land.";
+				d=" There are still some arrows on the floor, although you could swear the pile used to be bigger.";
+				} else { b="";c="";d=""; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+			// move NPC to another room: PERSON.goesTo(ROOM,You); 
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"Placing your hand on the sill of the opening, you gracefully hop through it and into the booth." +a+ b 
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"You jump back into the archery stall." +c
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"Instead of hopping into the stand, this time you just lean over the side and look in. You get a little dizzy, and start to think you might puke."+d
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"You enter the archery sidestall, again."
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+
+	ArcherySidestallInside.setStuff(
+	new ArrayList<Item>() {{ 
+		add(iArrows);
+	}},
+	null);
+
 	// Room: BasketballSidestall ----------------------------------------------------------------------
 	BasketballSidestall.setDescription(
 	"Basketball Sidestall",
 	new Room.Description() {
 		public String[] make(int numberOfVisits) {
 			String strTemp[];
-			String a,b,c,d;
+			String a,b,c,d,e;
 		
-			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
-			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			if ((You.areWith(pMelissa)) && (You.have(iBasketball))) {
+				c=" Mel sneaks up behind you and grabs the basketball. You protest a bit, but smile inwardly as she goofily tries to dribble her bibble, and then she shoots in this awkward leggy way that makes her body look like a falling chromosome. The basketball lands in the corner made by the hoop bracket and the backboard, and bounces out. It lands on the ground dully, and bounces three times with effort in your direction.";
+			You.updateItem(iBasketball,0);
+			BasketballSidestall.updateItem(iBasketball,1);			
+			} 
+			else { c=""; }
+ 
+			if (You.areWith(pMelissa)) {a=" and Mel"; } else { a=""; }
+			if (You.have(iBasketball)) { 
+				b=" You are holding the basketball against your hip, and leaning into in in a way that looks pretty sassy";
+				d=" You are holding the basketball likes its a baby, scratching it a little"; 
+				e=" You are holding a basketball.";
+				} else { b=""; d="";e=""; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
@@ -1424,22 +1483,22 @@ new Room.Description() {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						"The game is bascially a regular basketball hoop, but with a plywood wall behind it, and two sidewalls that come out to the sides. There are a few rusty and bent bolts that extent from some concrete in the ground a few feet in front of you" +a+ ", which look like they once were part of a barrier to keep the balls in the stall."
 					};
 				break;
 				case 2:
 					strTemp = new String[] {
-						"ROOMDESC2"
+						"You are back at the basketball stand."+b+c
 					};
 				break;
 				case 3:
 					strTemp = new String[] {
-						"ROOMDESC3"
+						"You are back at the basketball stand."+d
 					};
 				break;
 				default:
 					strTemp = new String[] {
-						"ROOMDESC_Default"
+						"You are back at the basketball stand."+e
 					};
 				break;
 			}
@@ -1455,6 +1514,12 @@ new Room.Description() {
 	"Hot-Dog Cart",""
 	);
 	
+	BasketballSidestall.setStuff(
+	new ArrayList<Item>() {{ 
+		add(iBasketball);
+	}},
+	null);
+
 	// Room: HotDogCart --------------------------------------------------------------------------------
 	HotDogCart.setDescription(
 	"Hot-Dog Cart",

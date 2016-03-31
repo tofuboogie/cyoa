@@ -4,9 +4,9 @@ class Rooms_bulk extends Rooms {
 	public static void initBulkArrays(){
 		tz_rooms = new Room[] {CottonCandyStand,MiniatureTrainStation,MiniatureTrainCars,ChairSwing,ChairSwingTower,ChairSwingSeat,ChairSwingUnderGrating,ChairSwingTowerMid,ChairSwingTowerNearTop,ChairSwingTowerOnTop,HiStriker,WaterGunGame,DeepFriedTwinkie,Outbuilding,TauntedHoRse,MechanicalBull,CableCar,PicnicArea,CircusTent,TiltAWhirl};
 
-		dt_rooms = new Room[] {Begin,FenceHole,Home,Work,Tracks,Fence,TieShoes,FenceLock,Tracks2,ShoesNoise,FreakOut,Melissa,TakeLoveLock,AskMelissa,MaintenanceShed,MaintenanceRearDoor,MaintenanceRearWindow,MaintenanceShedFront,MaintShedFrontDoor,MaintShedInside,TakeCrowbar,Gazebo,BurlesqueParlor,FerrisWheel,FunnelcakeStand,PublicSquare,ArcherySidestall,BasketballSidestall,HotDogCart,MerryGoRound,PortaJon,BumperCars,TicketBooth,BurlesqueStage};
+		dt_rooms = new Room[] {Begin,FenceHole,Home,Work,Tracks,Fence,TieShoes,FenceLock,Tracks2,ShoesNoise,FreakOut,Melissa,TakeLoveLock,AskMelissa,MaintenanceShed,MaintenanceRearDoor,MaintenanceRearWindow,MaintenanceShedFront,MaintShedFrontDoor,MaintShedInside,TakeCrowbar,Gazebo,BurlesqueParlor,FerrisWheel,FunnelcakeStand,PublicSquare,ArcherySidestall,ArcherySidestallInside,BasketballSidestall,HotDogCart,MerryGoRound,PortaJon,BumperCars,TicketBooth,BurlesqueStage};
 
-		items = new Item[] {iYourself,iTshirt,iLoveLocks,iLoveLockKey,iThingamabob,iCrowbar,iMaintShedFD,iTissue,iChairSwingGrating,iChairSwingDoor,iChairSwingDoorHandle,iChairSwingLever,iChairSwingTowerNearTopDoor,iFlashlight,iBurlesqueSofa,iBurlesqueSwitch,iBurlesquePiano,iBurlesquePainting,iBurlesqueManikin,iBumperCar1,iBumperCar2,iBumperCar3};
+		items = new Item[] {iYourself,iTshirt,iLoveLocks,iLoveLockKey,iThingamabob,iCrowbar,iMaintShedFD,iTissue,iChairSwingGrating,iChairSwingDoor,iChairSwingDoorHandle,iChairSwingLever,iChairSwingTowerNearTopDoor,iFlashlight,iBurlesqueSofa,iBurlesqueSwitch,iBurlesquePiano,iBurlesquePainting,iBurlesqueManikin,iBumperCar1,iBumperCar2,iBumperCar3,iArrows,iBasketball};
 	}
 	
 	public static void changeFieldReferences(){ // bc Java has no iYourself**
@@ -66,13 +66,14 @@ class Rooms_bulk extends Rooms {
 		FunnelcakeStand = dt_rooms[24];
 		PublicSquare = dt_rooms[25];
 		ArcherySidestall = dt_rooms[26];
-		BasketballSidestall = dt_rooms[27];
-		HotDogCart = dt_rooms[28];
-		MerryGoRound = dt_rooms[29];
-		PortaJon = dt_rooms[30];
-		BumperCars = dt_rooms[31];
-		TicketBooth = dt_rooms[32];
-		BurlesqueStage = dt_rooms[33];
+		ArcherySidestallInside = dt_rooms[27];
+		BasketballSidestall = dt_rooms[28];
+		HotDogCart = dt_rooms[29];
+		MerryGoRound = dt_rooms[30];
+		PortaJon = dt_rooms[31];
+		BumperCars = dt_rooms[32];
+		TicketBooth = dt_rooms[33];
+		BurlesqueStage = dt_rooms[34];
 	}
 	
 	public static void changeFieldReferences_items() {
@@ -98,5 +99,7 @@ class Rooms_bulk extends Rooms {
 		iBumperCar1 = items[19];
 		iBumperCar2 = items[20];
 		iBumperCar3 = items[21];
+		iArrows = items[22];
+		iBasketball = items[23];
 	}
 }
