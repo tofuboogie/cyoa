@@ -6,7 +6,7 @@ class Rooms_bulk extends Rooms {
 
 		dt_rooms = new Room[] {Begin,FenceHole,Home,Work,Tracks,Fence,TieShoes,FenceLock,Tracks2,ShoesNoise,FreakOut,Melissa,TakeLoveLock,AskMelissa,MaintenanceShed,MaintenanceRearDoor,MaintenanceRearWindow,MaintenanceShedFront,MaintShedFrontDoor,MaintShedInside,TakeCrowbar,Gazebo,BurlesqueParlor,FerrisWheel,FunnelcakeStand,PublicSquare,ArcherySidestall,ArcherySidestallInside,BasketballSidestall,HotDogCart,MerryGoRound,PortaJon,BumperCars,TicketBooth,BurlesqueStage};
 
-		items = new Item[] {iYourself,iTshirt,iLoveLocks,iLoveLockKey,iThingamabob,iCrowbar,iMaintShedFD,iTissue,iChairSwingGrating,iChairSwingDoor,iChairSwingDoorHandle,iChairSwingLever,iChairSwingTowerNearTopDoor,iFlashlight,iBurlesqueSofa,iBurlesqueSwitch,iBurlesquePiano,iBurlesquePainting,iBurlesqueManikin,iBumperCar1,iBumperCar2,iBumperCar3,iArrows,iBasketball};
+		items = new Item[] {iYourself,iTshirt,iLoveLocks,iLoveLockKey,iThingamabob,iCrowbar,iMaintShedFD,iTissue,iChairSwingGrating,iChairSwingDoor,iChairSwingDoorHandle,iChairSwingLever,iChairSwingTowerNearTopDoor,iFlashlight,iBurlesqueSofa,iBurlesqueSwitch,iBurlesquePiano,iBurlesquePainting,iBurlesqueManikin,iBumperCar1,iBumperCar2,iBumperCar3,iArrows,iBasketball,iBasketballHoop};
 	}
 	
 	public static void changeFieldReferences(){ // bc Java has no iYourself**
@@ -101,5 +101,6 @@ class Rooms_bulk extends Rooms {
 		iBumperCar3 = items[21];
 		iArrows = items[22];
 		iBasketball = items[23];
+		iBasketballHoop = items[24];
 	}
 }

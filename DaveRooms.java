@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class DaveRooms extends Rooms implements Serializable {
+//add You.drop(ITEM,ROOM);
 
 	public DaveRooms() {
 	}
@@ -1354,7 +1355,7 @@ new Room.Description() {
 	"Funnelcake Stand","",
 	"Merry-Go-Round",""
 	);
-	
+
 	// Room: ArcherySidestall ---------------------------------------------------------------------
 	ArcherySidestall.setDescription(
 	"Archery Sidestall",
@@ -1463,15 +1464,13 @@ new Room.Description() {
 		
 			if ((You.areWith(pMelissa)) && (You.have(iBasketball))) {
 				c=" Mel sneaks up behind you and grabs the basketball. You protest a bit, but smile inwardly as she goofily tries to dribble her bibble, and then she shoots in this awkward leggy way that makes her body look like a falling chromosome. The basketball lands in the corner made by the hoop bracket and the backboard, and bounces out. It lands on the ground dully, and bounces three times with effort in your direction.";
-			You.updateItem(iBasketball,0);
-			BasketballSidestall.updateItem(iBasketball,1);			
 			} 
-			else { c=""; }
+			else { c=" You fumble around and drop the basketball."; }
  
 			if (You.areWith(pMelissa)) {a=" and Mel"; } else { a=""; }
 			if (You.have(iBasketball)) { 
-				b=" You are holding the basketball against your hip, and leaning into in in a way that looks pretty sassy";
-				d=" You are holding the basketball likes its a baby, scratching it a little"; 
+				b=" You are holding the basketball against your hip, and leaning into in in a way that looks pretty sassy.";
+				d=" You are holding the basketball like its a baby, scratching it a little."; 
 				e=" You are holding a basketball.";
 				} else { b=""; d="";e=""; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
@@ -1483,13 +1482,15 @@ new Room.Description() {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"The game is bascially a regular basketball hoop, but with a plywood wall behind it, and two sidewalls that come out to the sides. There are a few rusty and bent bolts that extent from some concrete in the ground a few feet in front of you" +a+ ", which look like they once were part of a barrier to keep the balls in the stall."
+						"The game is bascially a regular basketball hoop, but with a plywood wall behind it, and two sidewalls that come out to the sides. There are a few rusty and bent bolts that extend from some concrete in the ground a few feet in front of you" +a+ ", which look like they once were part of a barrier to keep the balls in the stall."
 					};
 				break;
 				case 2:
 					strTemp = new String[] {
 						"You are back at the basketball stand."+b+c
 					};
+						You.updateItem(iBasketball,0);
+						BasketballSidestall.updateItem(iBasketball,1);			
 				break;
 				case 3:
 					strTemp = new String[] {
@@ -1517,6 +1518,7 @@ new Room.Description() {
 	BasketballSidestall.setStuff(
 	new ArrayList<Item>() {{ 
 		add(iBasketball);
+		add(iBasketballHoop);
 	}},
 	null);
 
@@ -1529,6 +1531,7 @@ new Room.Description() {
 			String a,b,c,d;
 		
 			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
+			if (You.areWith(pMelissa)) {a=" and Mel"; } else { a=""; }
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
 			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
@@ -1539,22 +1542,17 @@ new Room.Description() {
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						"You" +a+ " walk up to the hot-dog stand. The cart is small and rusty. On one side, it has an open window, and next to that a wall with faded images of hot-dogs, amongst other wonders. There are simple, thick hot-dogs with braise marks on them ensconced in buns. The other images surrounding this one are variations on the theme: we have the same simple hot-dog, but with a squiggle of mustard down the length of it. There are hot-dogs with sauerkraut, hot-dogs with chili, hot-dogs with some unrecognizable goo glopped on it.","There are also things that don't make much sense to you, like hot dogs sitting at the base of what looks like a giant fried pillow, and another image of a bowl with fried spheres in it, which are the exact same color as hot-dogs. On the other side of the stand is a series of doors that lock with one central combination lock. The vendor probably would swing these all open and stand outside of the cart to do all of their work."
 					};
 				break;
-				case 2:
-					strTemp = new String[] {
-						"ROOMDESC2"
-					};
-				break;
-				case 3:
-					strTemp = new String[] {
-						"ROOMDESC3"
-					};
-				break;
+				case 2: strTemp = new String[] {"You walk up to the cart, and are mesmerized by the kraut-dog."};break;
+				case 3: strTemp = new String[] {"You return to the dog-stand, and are mesmerized by the chili-dog."};break;
+				case 4: strTemp = new String[] {"You are back at the hot-dog stand. Your eyes focus on the large fried pillow, with lil' dogs hanging out nearby."};break;
+				case 5: strTemp = new String[] {"Like a fly into the flame, you cannot ignore the cart, and you walk back to it, never moving your eyes off of the donut-holes, made out of hot-dogs"};break;
+				case 6: strTemp = new String[] {"You return to the hot-dog cart, and finally, the images have lost their novelty, and start to properly turn your stomach."};break;
 				default:
 					strTemp = new String[] {
-						"ROOMDESC_Default"
+						"You"+a+" are back at the hot-dog cart."
 					};
 				break;
 			}

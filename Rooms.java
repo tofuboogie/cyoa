@@ -45,7 +45,7 @@ public class Rooms implements Serializable {
 	protected static Item iChairSwingTowerNearTopDoor, iFlashlight, iBurlesqueSofa, iBurlesqueSwitch;
 	protected static Item iBurlesquePiano, iBurlesquePainting, iBurlesqueManikin;
 	protected static Item iBumperCar1, iBumperCar2, iBumperCar3;
-	protected static Item iArrows, iBasketball;
+	protected static Item iArrows, iBasketball, iBasketballHoop;
 	//persons
 	protected static Person pMelissa;
 	
