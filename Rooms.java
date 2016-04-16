@@ -33,7 +33,7 @@ public class Rooms implements Serializable {
 	protected static Room Gazebo, BurlesqueParlor;
 	protected static Room FerrisWheel, FunnelcakeStand, PublicSquare;
 	protected static Room ArcherySidestall, ArcherySidestallInside, BasketballSidestall, HotDogCart;
-	protected static Room MerryGoRound, PortaJon, BumperCars, TicketBooth;
+	protected static Room MerryGoRound, PortaJon, BumperCars, TicketBooth, TicketBoothInside;
 	protected static Room BurlesqueStage;
 	
 	//items
@@ -45,7 +45,8 @@ public class Rooms implements Serializable {
 	protected static Item iChairSwingTowerNearTopDoor, iFlashlight, iBurlesqueSofa, iBurlesqueSwitch;
 	protected static Item iBurlesquePiano, iBurlesquePainting, iBurlesqueManikin;
 	protected static Item iBumperCar1, iBumperCar2, iBumperCar3;
-	protected static Item iArrows, iBasketball, iBasketballHoop;
+	protected static Item iArrows, iBasketball, iBasketballHoop, iCoatHanger;
+	protected static Item iTicketBoothWindow, iTicketBoothKey;
 	//persons
 	protected static Person pMelissa;
 	

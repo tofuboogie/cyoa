@@ -1576,6 +1576,7 @@ new Room.Description() {
 			String strTemp[];
 			String a,b,c,d;
 		
+			if (You.areWith(pMelissa)) {a=" and Mel"; } else { a=""; }
 			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
@@ -1583,11 +1584,12 @@ new Room.Description() {
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
 			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
 			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+			// move NPC to another room: PERSON.goesTo(ROOM,You); 
 		
 			switch (numberOfVisits){
 				case 1:
 					strTemp = new String[] {
-						"ROOMDESC1"
+						"You" +a+ " walk up to the merry-go-round. Everything within the ride is in shadow, blocked from the moonlight by a large circular roof. You can make out what look like three horses skewered on poles, galloping in a row at various heights. You suspect this means that there are probably about 8-10 horses encircling the turnstile.  
 					};
 				break;
 				case 2:
@@ -1722,9 +1724,9 @@ new Room.Description() {
 
 	BumperCars.setOtherRooms(
 	MerryGoRound, PortaJon, TicketBooth,
-	"Merry-Go-Round","",
-	"Porta-Jon","",
-	"Ticket Booth",""
+	"Merry-Go-Round","Take a spin on the merry-go-round.",
+	"Porta-Jon","The tacky name speaks for itself.",
+	"Ticket Booth","Go to the ticket booth."
 	);
 	
 	BumperCars.setStuff(
@@ -1732,6 +1734,7 @@ new Room.Description() {
 		add(iBumperCar1);
 		add(iBumperCar2);
 		add(iBumperCar3);
+		add(iCoatHanger);
 	}},
 	new ArrayList<Person>()
 	);
@@ -1745,6 +1748,64 @@ new Room.Description() {
 			String strTemp[];
 			String a,b,c,d;
 		
+			if (You.areWith(pMelissa)) { 
+				a=" and Mel"; 
+				b= "Mel pushes her finger under the glass";
+			} 
+			else { 
+				a=""; 
+				b=" You squeeze your finger through the little gap, pressing on the sign,";
+			}
+			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
+			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
+			// if (ROOM.hasPerson(PERSON) { ACTION; } else { ACTION; }
+			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
+			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
+			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+		
+			switch (numberOfVisits){
+				case 1:
+					strTemp = new String[] {
+						"The ticket booth is a small building, about 8' square. It has a large thick glass at the front, facing the gate that keeps this park from the rest of the world. There is a counter below the glass, which juts out to make a little shelf, useful for pushing cash under the window and receiving tickets in return. There is a little piece of siding with the painted word, \"Closed,\" sitting on the counter leaning against the opposite side of the glass. The sign conveys the obvious, and also serves to block the little gap below the window and above the counter." +b+ " and it falls backward into the booth."
+					};
+				break;
+				case 2:
+					strTemp = new String[] {
+						"ROOMDESC2"
+					};
+				break;
+				case 3:
+					strTemp = new String[] {
+						"ROOMDESC3"
+					};
+				break;
+				default:
+					strTemp = new String[] {
+						"ROOMDESC_Default"
+					};
+				break;
+			}
+		
+			return strTemp;
+		}
+	});
+
+	TicketBooth.setOtherRooms(
+	MerryGoRound, CottonCandyStand, BumperCars,
+	"Merry-Go-Round","Visit the carousel.",
+	"Cotton Candy Stand","If you are searching for gross confection, he it is.",
+	"Bumper Cars","Check out the bumper cars."
+	);
+	
+		// Room: ROOM ----------------------------------------------------------------------------------------
+	TicketBoothInside.setDescription(
+	"Inside the Ticket Booth",
+	new Room.Description() {
+		public String[] make(int numberOfVisits) {
+			String strTemp[];
+			String a,b,c,d;
+	
+			if (You.areWith(pMelissa)) {a=" and Mel"; } else { a=""; }
 			// if (You.areWith(PERSON)) { ACTION; } else { ACTION; }
 			// if (You.have(ITEM)) { ACTION; } else { ACTION; }
 			// if (ROOM.hasItem(ITEM) { ACTION; } else { ACTION; }
@@ -1752,6 +1813,7 @@ new Room.Description() {
 			// if (ITEM.isOpen()) { ACTION; } else { ACTION; }			// useful for doors
 			// if (ITEM.isOn()) { ACTION; } else { ACTION; }
 			// if (comingFrom(ROOM)) { ACTION; } else { ACTION; }
+			// move NPC to another room: PERSON.goesTo(ROOM,You); 
 		
 			switch (numberOfVisits){
 				case 1:
@@ -1779,13 +1841,6 @@ new Room.Description() {
 			return strTemp;
 		}
 	});
-
-	TicketBooth.setOtherRooms(
-	MerryGoRound, CottonCandyStand, BumperCars,
-	"Merry-Go-Round","",
-	"Cotton Candy Stand","",
-	"Bumper Cars",""
-	);
 
 // End rooms
 }

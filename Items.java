@@ -61,6 +61,9 @@ public class Items extends Rooms implements Serializable {
 		iArrows.set("arrows","A bundle of 5 arrows, tied together with a black shoestring. All but one of them are so dull that their tips look like pencils whose erasers are just nubs. The fifth one, however is very sharp, and must be handled with utmost care.",false,true);
 		iBasketball.set("basketball","A worn old Wilson ball. The black rubber in the ribs is fraying a bit, and although severly underinflated, it is still usable.",false,true);
 		iBasketballHoop.set("b-ball hoop","A thick acrylic backboard with a faded orange rim",true,false);
+		iCoatHanger.set("coat hanger","A simple wire coat hanger, perfect for suspending an old ratty t-shirt above the floor.",false,true);
+		iTicketBoothWindow.set("ticket window","A thick glass window, suspended about an inch off of the counter.",true,false);
+		iTicketBoothKey.set("ticket booth key","An old brass key. You can tell that someone painted the bow blue once, which has mostly flaked off.",false,true);
 		/*
 		<Item object>.set(String name, String description, String is_are, Item requires,
 				String requirementMetText, boolean quiet, boolean open, boolean isDoor, boolean takeable);
@@ -73,7 +76,7 @@ public class Items extends Rooms implements Serializable {
 		/*
 		<Item object>.addAction(
 			Object itemTarget, 
-			new String[] { "ACTIONDESC1", "ACTIONDESC2", "ACTIONDESC3", ... }, 
+			new String[] { "ACTIONDESC1", "ACTIONDESC2", "ACTIONDESC3" }, 
 			new Item.Callback(){
 				public String update(int numberOfTries){
 					String str = "";
@@ -300,6 +303,41 @@ public class Items extends Rooms implements Serializable {
 			}
 		);	
 
+		
+		// needs a flashlight / ticket window addAction to see that the keys exist
+		iCoatHanger.addAction(
+			iTicketBoothWindow, 
+			new String[] { "" }, 
+			new Item.Callback(){
+				public String update(int numberOfTries){
+					String str = "";
+					boolean youCanSeeKeys;
+					if ((You.have(iFlashlight) && iFlashlight.isOn() && !You.have(iTicketBoothKey)) {
+						youCanSeeKeys = true;
+					}
+					
+					switch(numberOfTries){
+						case 1: 
+							str = "You carefully unwind the neck of the wire hanger from its body, and then stretch it out. Using somewhat painful pressure against your thumb, you bend one end of the hanger into an \"L,\" and then bend it a little further into a \"V.\" You slide the wire underneath the glass.";
+							if (youCanSeeKeys) { str += " You carefully fish the wire over towards the keys. It bounces in alternating caternary waves as the hooked end gets closer to its quarry. The end catches on the bottom of the key and leans it forward, but then the hook slips off and you pull the hanger back to yourself.";
+							}
+							else { str += " You fish around aimlessly in the dark and achieve nothing. You pull the deformed coat hanger back out of the hole.";
+							}
+						break;
+						
+						default: 
+							str = "You fish the wire through the little crack again.";
+							if (youCanSeeKeys) { str += " Once again, the wire bobs up and down as you feed more of it towards the hanging key. You slow down as you get closer, and then the point of the \"V\" touches the bow of the key, lightly. You hold your breath as you slide the elbow over the key and then pull up, so that the hook slides through the bow. You pop it up and off of the nail, while twisting the \"V\" so that it catches and holds onto the key. You slowly bob it back to the window, and as soon as the key is safely on the counter, you slide your left hand under the glass and retrieve it.";
+							}
+							else {
+								" You flail around in the void with your unstrung wire. You kind of slap it up and down, and then drag it side to side at the underside edge of the counter, hoping for it to grab something, anything.";
+							}
+						break;
+					}
+					return str;
+				}
+			}
+		);	
 
 	// End item definitions
 	}	
